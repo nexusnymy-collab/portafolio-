@@ -3,5 +3,5 @@
 </p>
 
 <h1 align="center" style="color:blue;">
-  FINISE 2025
+  FINESI 2025
 </h1>
