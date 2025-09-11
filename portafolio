@@ -1,1 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio – Programación Numérica</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 text-white font-sans">
+
+  <!-- Encabezado -->
+  <header class="bg-slate-800 shadow-lg p-6 flex justify-between items-center rounded-b-2xl">
+    <!-- Logo UNA -->
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Logo_UNAP.png" 
+         alt="Logo UNA Puno" class="w-20">
+
+    <div class="text-center">
+      <h1 class="text-3xl font-bold text-blue-400">Portafolio – Programación Numérica</h1>
+      <p class="mt-2 text-slate-300">FINESI · Universidad Nacional del Altiplano – Puno · Semestre 2025</p>
+      <p class="text-sm text-slate-400 mt-1">
+        Estudiante: <span class="font-semibold text-white">Nexu Yohan Mamani Yucra</span> | 
+        Docente: <span class="font-semibold text-white">Torres Cruz Fred</span> | 
+        Sección: PN-01
+      </p>
+    </div>
+
+    <!-- Logo de la carrera -->
+    <img src="https://i.imgur.com/7m8fxNR.png" 
+         alt="Logo Estadística e Informática UNA" class="w-20">
+  </header>
+
+  <!-- Sobre el portafolio -->
+  <section class="p-6 max-w-4xl mx-auto mt-6 bg-slate-800 rounded-2xl shadow-lg">
+    <h2 class="text-xl font-bold text-blue-300 mb-2">Sobre este portafolio</h2>
+    <p class="text-slate-300">
+      Espacio para documentar mis actividades, tareas y proyectos del curso 
+      <span class="font-semibold text-white">Programación Numérica</span>.
+    </p>
+  </section>
+
+  <!-- Actividades -->
+  <section class="p-6 max-w-6xl mx-auto mt-6">
+    <h2 class="text-2xl font-bold text-blue-300 mb-4">Actividades del curso</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      
+      <!-- Actividad 1 -->
+      <div class="bg-slate-800 p-4 rounded-2xl shadow hover:shadow-xl transition">
+        <h3 class="font-bold text-lg text-white mb-2">Actividad 01 · Error y Aritmética de Punto Flotante</h3>
+        <p class="text-slate-300 mb-4">Ejercicios de redondeo, error absoluto/relativo y estabilidad numérica.</p>
+        <a href="#" class="text-blue-400 hover:underline">📂 Ver repositorio</a>
+      </div>
+
+      <!-- Actividad 2 -->
+      <div class="bg-slate-800 p-4 rounded-2xl shadow hover:shadow-xl transition">
+        <h3 class="font-bold text-lg text-white mb-2">Actividad 02 · Raíces: Bisección y Newton-Raphson</h3>
+        <p class="text-slate-300 mb-4">Implementación comparativa, criterios de paro y gráficas de convergencia.</p>
+        <a href="#" class="text-blue-400 hover:underline">💻 Código fuente</a>
+      </div>
+
+      <!-- Proyecto Final -->
+      <div class="bg-slate-800 p-4 rounded-2xl shadow hover:shadow-xl transition">
+        <h3 class="font-bold text-lg text-white mb-2">Proyecto Final · Interpolación y Ajuste</h3>
+        <p class="text-slate-300 mb-4">Interpolación de Newton y spline cúbico; ajuste por mínimos cuadrados.</p>
+        <a href="#" class="text-blue-400 hover:underline">📑 Informe final</a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="text-center text-slate-400 text-sm py-4">
+    © 2025 · Portafolio de Programación Numérica · UNA Puno
+  </footer>
+
+</body>
+</html>
 
