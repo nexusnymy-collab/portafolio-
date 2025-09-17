@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Logo_UNAP.png" alt="Logo UNA Puno" width="120"/>
+
 </p>
 
 <h1 align="center" style="color:blue;">
@@ -18,9 +18,7 @@
   <div style="max-width:700px; margin:0 auto;">
     <p style="margin:12px 0 6px 0; font-size:14px;"> <strong>Estudiante:</strong></p>
     <p style="margin:0 0 12px 0; font-size:16px;"><strong>Nexu Mamani Yucra</strong></p>
+  <p style="margin:12px 0 6px 0; font-size:14px;"> <strong>Docente:</strong></p>
+    <p style="margin:0 0 12px 0; font-size:16px;"><strong>Torres Cruz Fred</strong></p>
 
-
-    <p style= Puno – 2025</p>
-  </div>
-</div>
 
