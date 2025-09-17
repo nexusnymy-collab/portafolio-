@@ -7,16 +7,6 @@
 </h1>
 
 
-<!-- Carátula para README.md (GitHub) -->
-<div style="background-color:#003366; color:#ffffff; padding:40px; border-radius:12px; text-align:center; font-family:'Cooper Black', 'Arial Black', Gadget, sans-serif;">
-
-  <!-- fila de logos a los lados -->
-  <div style="display:flex; justify-content:space-between; align-items:flex-start; max-width:900px; margin:0 auto 18px auto;">
-    <img src="images/Logo_UNAP.png" alt="Logo UNAP" style="width:70px; height:auto; object-fit:contain;"/>
-    <div style="flex:1"></div>
-    <img src="images/facultad.png" alt="Logo Facultad" style="width:70px; height:auto; object-fit:contain;"/>
-  </div>
-
   <!-- Texto centrado -->
   <h1 style="margin:6px 0 6px 0; font-size:26px; letter-spacing:0.5px;">UNIVERSIDAD NACIONAL DEL ALTIPLANO – PUNO</h1>
   <h2 style="margin:4px 0 14px 0; font-size:18px; font-weight:700;">Facultad de Ingeniería de Estadística e Informática</h2>
@@ -32,7 +22,7 @@
     <p style="margin:12px 0 6px 0; font-size:14px;">👨‍🏫 <strong>Docente:</strong></p>
     <p style="margin:0 0 24px 0; font-size:16px;"><strong>Torres Cruz Fred</strong></p>
 
-    <p style="margin-top:18px; font-size:13px;">📍 Puno – 2025</p>
+    <p style= Puno – 2025</p>
   </div>
 </div>
 
