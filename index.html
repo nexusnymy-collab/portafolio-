@@ -1,28 +1,376 @@
-<!-- Carátula para README.md (GitHub) -->
-<div style="background-color:#003366; color:#ffffff; padding:40px; border-radius:12px; text-align:center; font-family:'Cooper Black', 'Arial Black', Gadget, sans-serif;">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programación Numérica</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <!-- fila de logos a los lados -->
-  <div style="display:flex; justify-content:space-between; align-items:flex-start; max-width:900px; margin:0 auto 18px auto;">
-    <img src="images/Logo_UNAP.png" alt="Logo UNAP" style="width:70px; height:auto; object-fit:contain;"/>
-    <div style="flex:1"></div>
-    <img src="images/facultad.png" alt="Logo Facultad" style="width:70px; height:auto; object-fit:contain;"/>
-  </div>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            color: #00ff88;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
 
-  <!-- Texto centrado -->
-  <h1 style="margin:6px 0 6px 0; font-size:26px; letter-spacing:0.5px;">UNIVERSIDAD NACIONAL DEL ALTIPLANO – PUNO</h1>
-  <h2 style="margin:4px 0 14px 0; font-size:18px; font-weight:700;">Facultad de Ingeniería de Estadística e Informática</h2>
+        /* Efecto de grid tecnológico de fondo */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px),
+                linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+            pointer-events: none;
+            z-index: 0;
+        }
 
-  <hr style="border:none; height:1px; background:rgba(255,255,255,0.15); width:80%; margin:16px auto;" />
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
 
-  <h1 style="margin:10px 0 18px 0; font-size:22px;">📘 Portafolio – Programación Numérica</h1>
+        /* Partículas flotantes */
+        .particle {
+            position: fixed;
+            width: 3px;
+            height: 3px;
+            background: #00ff88;
+            border-radius: 50%;
+            opacity: 0.5;
+            pointer-events: none;
+            animation: float 15s infinite;
+            z-index: 1;
+        }
 
-  <div style="max-width:700px; margin:0 auto;">
-    <p style="margin:12px 0 6px 0; font-size:14px;">👨‍🎓 <strong>Estudiante:</strong></p>
-    <p style="margin:0 0 12px 0; font-size:16px;"><strong>Nexu Mamani Yucra</strong></p>
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+        }
 
-    <p style="margin:12px 0 6px 0; font-size:14px;">👨‍🏫 <strong>Docente:</strong></p>
-    <p style="margin:0 0 24px 0; font-size:16px;"><strong>Torres Cruz Fred</strong></p>
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 2;
+        }
 
-    <p style="margin-top:18px; font-size:13px;">📍 Puno – 2025</p>
-  </div>
-</div>
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid #00ff88;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        header:hover {
+            box-shadow: 0 0 50px rgba(0, 255, 136, 0.5);
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            font-size: 3em;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(0, 255, 136, 0.8);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 20px rgba(0, 255, 136, 0.8); }
+            to { text-shadow: 0 0 30px rgba(0, 255, 136, 1), 0 0 40px rgba(0, 255, 136, 0.6); }
+        }
+
+        .info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .info-item {
+            padding: 10px 20px;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid #00ff88;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .info-item:hover {
+            background: rgba(0, 255, 136, 0.2);
+            transform: scale(1.05);
+        }
+
+        .info-label {
+            color: #00ff88;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .info-value {
+            color: #ffffff;
+            font-size: 1.1em;
+            margin-top: 5px;
+        }
+
+        .units-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .unit {
+            background: rgba(0, 0, 0, 0.6);
+            border: 2px solid #00ff88;
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .unit::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+        }
+
+        .unit:hover::before {
+            animation: shine 1.5s infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .unit:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 50px rgba(0, 255, 136, 0.4);
+            border-color: #00ffff;
+        }
+
+        .unit-title {
+            font-size: 2em;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .unit-number {
+            width: 50px;
+            height: 50px;
+            background: #00ff88;
+            color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+        .links-list {
+            list-style: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .links-list li {
+            margin-bottom: 15px;
+            transform: translateX(0);
+            transition: all 0.3s ease;
+        }
+
+        .links-list li:hover {
+            transform: translateX(10px);
+        }
+
+        .links-list a {
+            color: #00ff88;
+            text-decoration: none;
+            font-size: 1.1em;
+            display: inline-block;
+            padding: 12px 20px;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid #00ff88;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .links-list a::before {
+            content: '▶';
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .links-list a:hover::before {
+            margin-right: 15px;
+        }
+
+        .links-list a:hover {
+            background: rgba(0, 255, 136, 0.3);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+            color: #ffffff;
+            border-color: #00ffff;
+        }
+
+        /* Efecto de escaneo */
+        .scan-line {
+            position: fixed;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00ff88, transparent);
+            animation: scan 4s linear infinite;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
+        @media (max-width: 768px) {
+            .units-container {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .info {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Partículas flotantes -->
+    <script>
+        for(let i = 0; i < 30; i++) {
+            let particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            document.body.appendChild(particle);
+        }
+    </script>
+
+    <div class="scan-line"></div>
+
+    <div class="container">
+        <header>
+            <h1>Programación Numérica</h1>
+            <div class="info">
+                <div class="info-item">
+                    <div class="info-label">Docente</div>
+                    <div class="info-value">Fred Cruz Torres</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Estudiante</div>
+                    <div class="info-value">Nexu Yohan Mamani Yucra</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="units-container">
+            <!-- UNIDAD 1 -->
+            <div class="unit">
+                <h2 class="unit-title">
+                    <span class="unit-number">01</span>
+                    Unidad 1
+                </h2>
+                <ul class="links-list">
+                    <li><a href="https://tu-usuario.github.io/pagina1/" target="_blank">Página 1 - Portafolio</a></li>
+                    <li><a href="https://tu-usuario.github.io/pagina2/" target="_blank">Página 2 - Blog personal</a></li>
+                    <li><a href="https://tu-usuario.github.io/pagina3/" target="_blank">Página 3 - Proyecto escolar</a></li>
+                    <li><a href="https://tu-usuario.github.io/pagina4/" target="_blank">Página 4 - Galería</a></li>
+                    <li><a href="https://tu-usuario.github.io/pagina5/" target="_blank">Página 5 - Experimentos</a></li>
+                </ul>
+            </div>
+
+            <!-- UNIDAD 2 -->
+            <div class="unit">
+                <h2 class="unit-title">
+                    <span class="unit-number">02</span>
+                    Unidad 2
+                </h2>
+                <ul class="links-list">
+                    <li><a href="https://tu-usuario.github.io/pagina6/" target="_blank">Página 6 - Portafolio</a></li>
+                    <li><a href="https://tu-usuario.github.io/pagina7/" target="_blank">Página 7 - Blog personal</a></li>
+                    <li><a href="https://tu-usuario.github.io/pagina8/" target="_blank">Página 8 - Proyecto escolar</a></li>
+                    <li><a href="https://tu-usuario.github.io/pagina9/" target="_blank">Página 9 - Galería</a></li>
+                    <li><a href="https://tu-usuario.github.io/pagina10/" target="_blank">Página 10 - Experimentos</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Efecto de cursor tecnológico
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.createElement('div');
+            cursor.style.position = 'fixed';
+            cursor.style.width = '5px';
+            cursor.style.height = '5px';
+            cursor.style.borderRadius = '50%';
+            cursor.style.background = '#00ff88';
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            cursor.style.pointerEvents = 'none';
+            cursor.style.zIndex = '9999';
+            cursor.style.opacity = '0.8';
+            document.body.appendChild(cursor);
+
+            setTimeout(() => {
+                cursor.style.transition = 'all 0.5s ease';
+                cursor.style.opacity = '0';
+                cursor.style.transform = 'scale(2)';
+            }, 10);
+
+            setTimeout(() => {
+                cursor.remove();
+            }, 500);
+        });
+    </script>
+</body>
+</html>
