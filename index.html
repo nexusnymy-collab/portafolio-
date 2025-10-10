@@ -14,7 +14,7 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
-            color: #00ff88;
+            color: #00a8ff;
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
@@ -29,8 +29,8 @@
             width: 100%;
             height: 100%;
             background: 
-                linear-gradient(90deg, rgba(0, 255, 136, 0.03) 1px, transparent 1px),
-                linear-gradient(rgba(0, 255, 136, 0.03) 1px, transparent 1px);
+                linear-gradient(90deg, rgba(0, 168, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(rgba(0, 168, 255, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
             animation: gridMove 20s linear infinite;
             pointer-events: none;
@@ -47,7 +47,7 @@
             position: fixed;
             width: 3px;
             height: 3px;
-            background: #00ff88;
+            background: #00a8ff;
             border-radius: 50%;
             opacity: 0.5;
             pointer-events: none;
@@ -62,6 +62,17 @@
             100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
         }
 
+        /* Canvas para el dibujo de Wall-E */
+        #wallECanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
         .container {
             max-width: 1400px;
             margin: 0 auto;
@@ -74,16 +85,48 @@
             text-align: center;
             margin-bottom: 60px;
             padding: 40px 20px;
-            background: rgba(0, 0, 0, 0.5);
-            border: 2px solid #00ff88;
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid #00a8ff;
             border-radius: 20px;
-            box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+            box-shadow: 0 0 30px rgba(0, 168, 255, 0.3);
             transition: all 0.3s ease;
         }
 
         header:hover {
-            box-shadow: 0 0 50px rgba(0, 255, 136, 0.5);
+            box-shadow: 0 0 50px rgba(0, 168, 255, 0.5);
             transform: translateY(-5px);
+        }
+
+        .university-info {
+            background: rgba(0, 168, 255, 0.1);
+            border: 1px solid #00a8ff;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px auto;
+            text-align: center;
+            max-width: 800px;
+            transition: all 0.3s ease;
+        }
+
+        .university-info:hover {
+            background: rgba(0, 168, 255, 0.2);
+            box-shadow: 0 0 30px rgba(0, 168, 255, 0.4);
+        }
+
+        .university-info h3 {
+            color: #00a8ff;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px rgba(0, 168, 255, 0.5);
+        }
+
+        .university-info p {
+            color: #ffffff;
+            font-size: 1.1em;
+            margin: 8px 0;
+            letter-spacing: 1px;
         }
 
         h1 {
@@ -91,13 +134,13 @@
             text-transform: uppercase;
             letter-spacing: 5px;
             margin-bottom: 20px;
-            text-shadow: 0 0 20px rgba(0, 255, 136, 0.8);
+            text-shadow: 0 0 20px rgba(0, 168, 255, 0.8);
             animation: glow 2s ease-in-out infinite alternate;
         }
 
         @keyframes glow {
-            from { text-shadow: 0 0 20px rgba(0, 255, 136, 0.8); }
-            to { text-shadow: 0 0 30px rgba(0, 255, 136, 1), 0 0 40px rgba(0, 255, 136, 0.6); }
+            from { text-shadow: 0 0 20px rgba(0, 168, 255, 0.8); }
+            to { text-shadow: 0 0 30px rgba(0, 168, 255, 1), 0 0 40px rgba(0, 168, 255, 0.6); }
         }
 
         .info {
@@ -110,19 +153,19 @@
 
         .info-item {
             padding: 10px 20px;
-            background: rgba(0, 255, 136, 0.1);
-            border: 1px solid #00ff88;
+            background: rgba(0, 168, 255, 0.1);
+            border: 1px solid #00a8ff;
             border-radius: 10px;
             transition: all 0.3s ease;
         }
 
         .info-item:hover {
-            background: rgba(0, 255, 136, 0.2);
+            background: rgba(0, 168, 255, 0.2);
             transform: scale(1.05);
         }
 
         .info-label {
-            color: #00ff88;
+            color: #00a8ff;
             font-size: 0.9em;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -143,7 +186,7 @@
 
         .unit {
             background: rgba(0, 0, 0, 0.6);
-            border: 2px solid #00ff88;
+            border: 2px solid #00a8ff;
             border-radius: 20px;
             padding: 30px;
             transition: all 0.4s ease;
@@ -158,7 +201,7 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+            background: linear-gradient(45deg, transparent, rgba(0, 168, 255, 0.1), transparent);
             transform: rotate(45deg);
             transition: all 0.5s ease;
         }
@@ -174,7 +217,7 @@
 
         .unit:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 50px rgba(0, 255, 136, 0.4);
+            box-shadow: 0 10px 50px rgba(0, 168, 255, 0.4);
             border-color: #00ffff;
         }
 
@@ -193,7 +236,7 @@
         .unit-number {
             width: 50px;
             height: 50px;
-            background: #00ff88;
+            background: #00a8ff;
             color: #000;
             display: flex;
             align-items: center;
@@ -220,13 +263,13 @@
         }
 
         .links-list a {
-            color: #00ff88;
+            color: #00a8ff;
             text-decoration: none;
             font-size: 1.1em;
             display: inline-block;
             padding: 12px 20px;
-            background: rgba(0, 255, 136, 0.1);
-            border: 1px solid #00ff88;
+            background: rgba(0, 168, 255, 0.1);
+            border: 1px solid #00a8ff;
             border-radius: 8px;
             transition: all 0.3s ease;
             position: relative;
@@ -244,8 +287,8 @@
         }
 
         .links-list a:hover {
-            background: rgba(0, 255, 136, 0.3);
-            box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+            background: rgba(0, 168, 255, 0.3);
+            box-shadow: 0 0 20px rgba(0, 168, 255, 0.5);
             color: #ffffff;
             border-color: #00ffff;
         }
@@ -255,7 +298,7 @@
             position: fixed;
             width: 100%;
             height: 2px;
-            background: linear-gradient(90deg, transparent, #00ff88, transparent);
+            background: linear-gradient(90deg, transparent, #00a8ff, transparent);
             animation: scan 4s linear infinite;
             pointer-events: none;
             z-index: 3;
@@ -265,6 +308,8 @@
             0% { top: 0; }
             100% { top: 100%; }
         }
+
+
 
         @media (max-width: 768px) {
             .units-container {
@@ -297,8 +342,16 @@
 
     <div class="scan-line"></div>
 
+    <!-- Canvas para el dibujo de robot saludando -->
+    <canvas id="wallECanvas"></canvas>
+
     <div class="container">
         <header>
+            <div class="university-info">
+                <h3>Universidad Nacional del Altiplano</h3>
+                <p>Escuela Profesional de Estadística e Informática</p>
+            </div>
+
             <h1>Programación Numérica</h1>
             <div class="info">
                 <div class="info-item">
@@ -314,22 +367,22 @@
 
         <div class="units-container">
             <!-- UNIDAD 1 -->
-            <div class="unit">
+            <div class="unit" id="unit1">
                 <h2 class="unit-title">
                     <span class="unit-number">01</span>
                     Unidad 1
                 </h2>
                 <ul class="links-list">
-                    <li><a href="https://github.com/nexusnymy-collab/portafolio-/blob/main/identificador.py" target="_blank">identificador de funciones</a></li>
-                    <li><a href="https://github.com/nexusnymy-collab/portafolio-/blob/main/graficador.py" target="_blank">graficador</a></li>
+                    <li><a href="https://github.com/nexusnymy-collab/portafolio-/blob/main/identificador.py" target="_blank">Identificador de funciones</a></li>
+                    <li><a href="https://github.com/nexusnymy-collab/portafolio-/blob/main/graficador.py" target="_blank">Graficador</a></li>
                     <li><a href="https://tu-usuario.github.io/pagina3/" target="_blank">Proyecto escolar</a></li>
-                    <li><a href="https://github.com/nexusnymy-collab/portafolio-/blob/main/metodo%20rapson.py" target="_blank">metodo raphson</a></li>
-                    <li><a href="https://github.com/nexusnymy-collab/portafolio-/blob/main/trb%20(1).pdf" target="_blank">expocion de raphson</a></li>
+                    <li><a href="https://github.com/nexusnymy-collab/portafolio-/blob/main/metodo%20rapson.py" target="_blank">Método Raphson</a></li>
+                    <li><a href="https://github.com/nexusnymy-collab/portafolio-/blob/main/trb%20(1).pdf" target="_blank">Exposición de Raphson</a></li>
                 </ul>
             </div>
 
             <!-- UNIDAD 2 -->
-            <div class="unit">
+            <div class="unit" id="unit2">
                 <h2 class="unit-title">
                     <span class="unit-number">02</span>
                     Unidad 2
@@ -346,6 +399,125 @@
     </div>
 
     <script>
+        // Dibujo de robot saludando en el centro
+        const wallECanvas = document.getElementById('wallECanvas');
+        const wallECtx = wallECanvas.getContext('2d');
+        wallECanvas.width = window.innerWidth;
+        wallECanvas.height = window.innerHeight;
+
+        let drawingRobot = false;
+
+        function drawRobot() {
+            if (drawingRobot) return;
+            drawingRobot = true;
+            wallECtx.clearRect(0, 0, wallECanvas.width, wallECanvas.height);
+
+            const centerX = wallECanvas.width / 2;
+            const centerY = wallECanvas.height / 2;
+            const scale = Math.min(wallECanvas.width, wallECanvas.height) / 800;
+
+            wallECtx.strokeStyle = '#00a8ff';
+            wallECtx.lineWidth = 3;
+            wallECtx.lineCap = 'round';
+            wallECtx.lineJoin = 'round';
+            wallECtx.shadowBlur = 15;
+            wallECtx.shadowColor = '#00a8ff';
+
+            const lines = [
+                // Cuerpo principal (rectángulo)
+                [[centerX - 60*scale, centerY - 20*scale], [centerX + 60*scale, centerY - 20*scale]],
+                [[centerX + 60*scale, centerY - 20*scale], [centerX + 60*scale, centerY + 80*scale]],
+                [[centerX + 60*scale, centerY + 80*scale], [centerX - 60*scale, centerY + 80*scale]],
+                [[centerX - 60*scale, centerY + 80*scale], [centerX - 60*scale, centerY - 20*scale]],
+                
+                // Cabeza (rectángulo más pequeño)
+                [[centerX - 40*scale, centerY - 20*scale], [centerX - 40*scale, centerY - 60*scale]],
+                [[centerX - 40*scale, centerY - 60*scale], [centerX + 40*scale, centerY - 60*scale]],
+                [[centerX + 40*scale, centerY - 60*scale], [centerX + 40*scale, centerY - 20*scale]],
+                
+                // Antena
+                [[centerX, centerY - 60*scale], [centerX, centerY - 80*scale]],
+                
+                // Ojo izquierdo
+                [[centerX - 25*scale, centerY - 50*scale], [centerX - 15*scale, centerY - 50*scale]],
+                [[centerX - 15*scale, centerY - 50*scale], [centerX - 15*scale, centerY - 35*scale]],
+                [[centerX - 15*scale, centerY - 35*scale], [centerX - 25*scale, centerY - 35*scale]],
+                [[centerX - 25*scale, centerY - 35*scale], [centerX - 25*scale, centerY - 50*scale]],
+                
+                // Ojo derecho
+                [[centerX + 15*scale, centerY - 50*scale], [centerX + 25*scale, centerY - 50*scale]],
+                [[centerX + 25*scale, centerY - 50*scale], [centerX + 25*scale, centerY - 35*scale]],
+                [[centerX + 25*scale, centerY - 35*scale], [centerX + 15*scale, centerY - 35*scale]],
+                [[centerX + 15*scale, centerY - 35*scale], [centerX + 15*scale, centerY - 50*scale]],
+                
+                // Panel en el pecho
+                [[centerX - 30*scale, centerY + 10*scale], [centerX + 30*scale, centerY + 10*scale]],
+                [[centerX + 30*scale, centerY + 10*scale], [centerX + 30*scale, centerY + 40*scale]],
+                [[centerX + 30*scale, centerY + 40*scale], [centerX - 30*scale, centerY + 40*scale]],
+                [[centerX - 30*scale, centerY + 40*scale], [centerX - 30*scale, centerY + 10*scale]],
+                
+                // Líneas del panel
+                [[centerX - 20*scale, centerY + 18*scale], [centerX + 20*scale, centerY + 18*scale]],
+                [[centerX - 20*scale, centerY + 25*scale], [centerX + 20*scale, centerY + 25*scale]],
+                [[centerX - 20*scale, centerY + 32*scale], [centerX + 20*scale, centerY + 32*scale]],
+                
+                // Brazo izquierdo (normal)
+                [[centerX - 60*scale, centerY + 10*scale], [centerX - 80*scale, centerY + 10*scale]],
+                [[centerX - 80*scale, centerY + 10*scale], [centerX - 80*scale, centerY + 50*scale]],
+                
+                // Brazo derecho (saludando - levantado)
+                [[centerX + 60*scale, centerY + 10*scale], [centerX + 80*scale, centerY + 10*scale]],
+                [[centerX + 80*scale, centerY + 10*scale], [centerX + 90*scale, centerY - 20*scale]],
+                [[centerX + 90*scale, centerY - 20*scale], [centerX + 100*scale, centerY - 40*scale]],
+                
+                // Mano saludando (líneas de movimiento)
+                [[centerX + 95*scale, centerY - 45*scale], [centerX + 110*scale, centerY - 50*scale]],
+                [[centerX + 95*scale, centerY - 40*scale], [centerX + 110*scale, centerY - 35*scale]],
+                [[centerX + 95*scale, centerY - 35*scale], [centerX + 110*scale, centerY - 30*scale]],
+                
+                // Piernas
+                [[centerX - 40*scale, centerY + 80*scale], [centerX - 40*scale, centerY + 120*scale]],
+                [[centerX - 40*scale, centerY + 120*scale], [centerX - 50*scale, centerY + 120*scale]],
+                [[centerX - 40*scale, centerY + 120*scale], [centerX - 30*scale, centerY + 120*scale]],
+                
+                [[centerX + 40*scale, centerY + 80*scale], [centerX + 40*scale, centerY + 120*scale]],
+                [[centerX + 40*scale, centerY + 120*scale], [centerX + 30*scale, centerY + 120*scale]],
+                [[centerX + 40*scale, centerY + 120*scale], [centerX + 50*scale, centerY + 120*scale]],
+            ];
+
+            let currentLine = 0;
+
+            function animateLine() {
+                if (currentLine >= lines.length) {
+                    drawingRobot = false;
+                    setTimeout(() => {
+                        wallECtx.clearRect(0, 0, wallECanvas.width, wallECanvas.height);
+                        setTimeout(drawRobot, 3000);
+                    }, 3000);
+                    return;
+                }
+
+                const line = lines[currentLine];
+                wallECtx.beginPath();
+                wallECtx.moveTo(line[0][0], line[0][1]);
+                wallECtx.lineTo(line[1][0], line[1][1]);
+                wallECtx.stroke();
+
+                currentLine++;
+                setTimeout(animateLine, 40);
+            }
+
+            animateLine();
+        }
+
+        drawRobot();
+
+        // Redimensionar canvas al cambiar tamaño de ventana
+        window.addEventListener('resize', () => {
+            wallECanvas.width = window.innerWidth;
+            wallECanvas.height = window.innerHeight;
+        });
+
         // Efecto de cursor tecnológico
         document.addEventListener('mousemove', (e) => {
             const cursor = document.createElement('div');
@@ -353,7 +525,7 @@
             cursor.style.width = '5px';
             cursor.style.height = '5px';
             cursor.style.borderRadius = '50%';
-            cursor.style.background = '#00ff88';
+            cursor.style.background = '#00a8ff';
             cursor.style.left = e.clientX + 'px';
             cursor.style.top = e.clientY + 'px';
             cursor.style.pointerEvents = 'none';
