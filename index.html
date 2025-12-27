@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programación Numérica</title>
+    <title>Programación Numérica - Portafolio</title>
     <style>
         * {
             margin: 0;
@@ -38,6 +38,25 @@
         @keyframes gridMove {
             0% { transform: translate(0, 0); }
             100% { transform: translate(50px, 50px); }
+        }
+
+        .particle {
+            position: fixed;
+            width: 3px;
+            height: 3px;
+            background: #00a8ff;
+            border-radius: 50%;
+            opacity: 0.5;
+            pointer-events: none;
+            animation: float 15s infinite;
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 0.5; }
+            90% { opacity: 0.5; }
+            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
         }
 
         .container {
@@ -134,7 +153,7 @@
 
         .units-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
             gap: 40px;
             margin-top: 40px;
         }
@@ -214,6 +233,11 @@
             box-shadow: 0 0 20px rgba(0, 168, 255, 0.5);
             color: #ffffff;
             border-color: #00ffff;
+        }
+
+        .links-list button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
 
         .content-display {
@@ -306,6 +330,21 @@
             margin-bottom: 15px;
         }
 
+        .scan-line {
+            position: fixed;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00a8ff, transparent);
+            animation: scan 4s linear infinite;
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        @keyframes scan {
+            0% { top: 0; }
+            100% { top: 100%; }
+        }
+
         @media (max-width: 768px) {
             .units-container {
                 grid-template-columns: 1fr;
@@ -319,10 +358,21 @@
                 flex-direction: column;
                 gap: 15px;
             }
+
+            .content-header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .content-header h2 {
+                font-size: 1.5em;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="scan-line"></div>
+
     <div class="container">
         <header>
             <div class="university-info">
@@ -350,10 +400,10 @@
                     Unidad 1
                 </h2>
                 <ul class="links-list">
-                    <li><button onclick="showContent('identificador')">Identificador de funciones</button></li>
-                    <li><button onclick="showContent('graficador')">Graficador</button></li>
-                    <li><button onclick="showContent('raphson')">Método Raphson</button></li>
-                    <li><button onclick="showContent('exposicion')">Exposición de Raphson</button></li>
+                    <li><button onclick="mostrarContenido('identificador')">Identificador de funciones</button></li>
+                    <li><button onclick="mostrarContenido('graficador')">Graficador</button></li>
+                    <li><button onclick="mostrarContenido('raphson')">Método Raphson</button></li>
+                    <li><button onclick="mostrarContenido('exposicion')">Exposición de Raphson</button></li>
                 </ul>
             </div>
 
@@ -363,7 +413,7 @@
                     Unidad 2
                 </h2>
                 <ul class="links-list">
-                    <li><button disabled style="opacity: 0.5; cursor: not-allowed;">En proceso</button></li>
+                    <li><button disabled>En proceso</button></li>
                 </ul>
             </div>
         </div>
@@ -371,13 +421,24 @@
         <div id="contentDisplay" class="content-display">
             <div class="content-header">
                 <h2 id="contentTitle">Título</h2>
-                <button class="close-btn" onclick="hideContent()">✕ Cerrar</button>
+                <button class="close-btn" onclick="cerrarContenido()">✕ Cerrar</button>
             </div>
             <div id="contentBody"></div>
         </div>
     </div>
 
     <script>
+        // Crear partículas
+        for(let i = 0; i < 30; i++) {
+            let particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 15 + 's';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            document.body.appendChild(particle);
+        }
+
+        // Contenidos de los archivos
         const contenidos = {
             identificador: {
                 titulo: "Identificador de Funciones",
@@ -660,7 +721,8 @@ Raíz aproximada: 1.41421 (√2 ≈ 1.41421356...)</pre>
             }
         };
 
-        function showContent(tipo) {
+        // Función para mostrar contenido
+        function mostrarContenido(tipo) {
             const display = document.getElementById('contentDisplay');
             const title = document.getElementById('contentTitle');
             const body = document.getElementById('contentBody');
@@ -677,7 +739,8 @@ Raíz aproximada: 1.41421 (√2 ≈ 1.41421356...)</pre>
             }
         }
 
-        function hideContent() {
+        // Función para cerrar contenido
+        function cerrarContenido() {
             const display = document.getElementById('contentDisplay');
             display.classList.remove('active');
             
