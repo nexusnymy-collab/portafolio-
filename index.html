@@ -263,7 +263,6 @@
             color: #00a8ff;
             background: rgba(0, 168, 255, 0.1);
             border: 1px solid #00a8ff;
-            text-decoration: none;
             font-size: 1.1em;
             display: block;
             width: 100%;
@@ -271,9 +270,8 @@
             padding: 12px 20px;
             border-radius: 8px;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
             cursor: pointer;
+            font-family: inherit;
         }
 
         .links-list button::before {
@@ -302,7 +300,7 @@
             top: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
+            background-color: rgba(0, 0, 0, 0.95);
             animation: fadeIn 0.3s ease;
         }
 
@@ -319,7 +317,7 @@
             border-radius: 20px;
             width: 90%;
             max-width: 1200px;
-            height: 90vh;
+            max-height: 90vh;
             display: flex;
             flex-direction: column;
             box-shadow: 0 0 50px rgba(0, 168, 255, 0.5);
@@ -392,6 +390,7 @@
             border-radius: 10px;
             padding: 20px;
             margin-bottom: 20px;
+            position: relative;
         }
 
         .code-container pre {
@@ -514,13 +513,12 @@
                     Unidad 2
                 </h2>
                 <ul class="links-list">
-                    <li><button>En proceso</button></li>
+                    <li><button disabled style="opacity: 0.5; cursor: not-allowed;">En proceso</button></li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- Modal -->
     <div id="contentModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -528,13 +526,11 @@
                 <span class="close" onclick="closeModal()">&times;</span>
             </div>
             <div class="modal-body" id="modalBody">
-                <!-- Contenido dinámico -->
             </div>
         </div>
     </div>
 
     <script>
-        // Contenido de los archivos
         const contenidos = {
             identificador: {
                 titulo: "Identificador de Funciones",
@@ -544,8 +540,7 @@
                         <p>Este programa identifica el tipo de función matemática basándose en su expresión algebraica.</p>
                     </div>
                     <div class="code-container">
-                        <pre>
-import re
+                        <pre>import re
 
 def identificar_funcion(expresion):
     """
@@ -554,7 +549,7 @@ def identificar_funcion(expresion):
     expresion = expresion.lower().replace(" ", "")
     
     # Función lineal: ax + b
-    if re.match(r'^[+-]?\d*x[+-]?\d+$|^[+-]?\d*x$', expresion):
+    if re.match(r'^[+-]?\\d*x[+-]?\\d+$|^[+-]?\\d*x$', expresion):
         return "Función Lineal"
     
     # Función cuadrática: ax² + bx + c
@@ -562,7 +557,7 @@ def identificar_funcion(expresion):
         return "Función Cuadrática"
     
     # Función exponencial: a^x
-    if re.search(r'\d+\*\*x|\d+\^x', expresion):
+    if re.search(r'\\d+\\*\\*x|\\d+\\^x', expresion):
         return "Función Exponencial"
     
     # Función logarítmica
@@ -574,7 +569,7 @@ def identificar_funcion(expresion):
         return "Función Trigonométrica"
     
     # Función polinómica (grado > 2)
-    if re.search(r'x\*\*[3-9]|x\^[3-9]', expresion):
+    if re.search(r'x\\*\\*[3-9]|x\\^[3-9]', expresion):
         return "Función Polinómica de grado superior"
     
     return "Función no identificada o compleja"
@@ -593,8 +588,7 @@ if __name__ == "__main__":
     
     for func in funciones_ejemplo:
         resultado = identificar_funcion(func)
-        print(f"Expresión: {func} → {resultado}")
-                        </pre>
+        print(f"Expresión: {func} → {resultado}")</pre>
                     </div>
                 `
             },
@@ -606,8 +600,7 @@ if __name__ == "__main__":
                         <p>Programa para graficar funciones matemáticas utilizando matplotlib y numpy.</p>
                     </div>
                     <div class="code-container">
-                        <pre>
-import numpy as np
+                        <pre>import numpy as np
 import matplotlib.pyplot as plt
 
 def graficar_funcion(funcion, inicio=-10, fin=10, titulo="Gráfica de Función"):
@@ -662,8 +655,7 @@ if __name__ == "__main__":
     graficar_funcion(lambda x: np.exp(x), 
                      inicio=-2, 
                      fin=2,
-                     titulo="Función Exponencial: f(x) = e^x")
-                        </pre>
+                     titulo="Función Exponencial: f(x) = e^x")</pre>
                     </div>
                 `
             },
@@ -675,8 +667,7 @@ if __name__ == "__main__":
                         <p>Implementación del método de Newton-Raphson para encontrar raíces de funciones.</p>
                     </div>
                     <div class="code-container">
-                        <pre>
-import numpy as np
+                        <pre>import numpy as np
 
 def derivada_numerica(f, x, h=1e-5):
     """
@@ -717,7 +708,7 @@ def newton_raphson(f, x0, tolerancia=1e-7, max_iter=100):
             'iteracion': i + 1,
             'x': x,
             'f(x)': fx,
-            'f\'(x)': fpx,
+            "f'(x)": fpx,
             'x_nuevo': x_nuevo
         })
         
@@ -752,8 +743,7 @@ if __name__ == "__main__":
     # Ejemplo 3: f(x) = cos(x) - x
     print("\\n\\n=== Resolver cos(x) = x ===")
     f3 = lambda x: np.cos(x) - x
-    raiz3, hist3 = newton_raphson(f3, x0=1.0)
-                        </pre>
+    raiz3, hist3 = newton_raphson(f3, x0=1.0)</pre>
                     </div>
                 `
             },
@@ -783,22 +773,19 @@ if __name__ == "__main__":
                         
                         <h3>Algoritmo</h3>
                         <div class="code-container">
-                            <pre>
-1. Elegir una aproximación inicial x₀
+                            <pre>1. Elegir una aproximación inicial x₀
 2. Para i = 0, 1, 2, ... hasta convergencia:
    a. Calcular f(xᵢ)
    b. Calcular f'(xᵢ)
    c. Calcular xᵢ₊₁ = xᵢ - f(xᵢ)/f'(xᵢ)
    d. Si |xᵢ₊₁ - xᵢ| < tolerancia, PARAR
-3. Retornar xᵢ₊₁ como aproximación de la raíz
-                            </pre>
+3. Retornar xᵢ₊₁ como aproximación de la raíz</pre>
                         </div>
                         
                         <h3>Ejemplo Numérico</h3>
                         <p>Encontrar la raíz de f(x) = x² - 2 (√2)</p>
                         <div class="code-container">
-                            <pre>
-Iteración 0: x₀ = 1.0
+                            <pre>Iteración 0: x₀ = 1.0
 f(1.0) = -1.0
 f'(1.0) = 2.0
 x₁ = 1.0 - (-1.0)/2.0 = 1.5
@@ -813,8 +800,7 @@ f(1.41667) ≈ 0.00694
 f'(1.41667) ≈ 2.83333
 x₃ ≈ 1.41421
 
-Raíz aproximada: 1.41421 (√2 ≈ 1.41421356...)
-                            </pre>
+Raíz aproximada: 1.41421 (√2 ≈ 1.41421356...)</pre>
                         </div>
                         
                         <h3>Aplicaciones</h3>
@@ -827,7 +813,6 @@ Raíz aproximada: 1.41421 (√2 ≈ 1.41421356...)
             }
         };
 
-        // Funciones del modal
         function openModal(tipo) {
             const modal = document.getElementById('contentModal');
             const modalTitle = document.getElementById('modalTitle');
@@ -843,145 +828,4 @@ Raíz aproximada: 1.41421 (√2 ≈ 1.41421356...)
 
         function closeModal() {
             const modal = document.getElementById('contentModal');
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-
-        // Cerrar modal al hacer clic fuera
-        window.onclick = function(event) {
-            const modal = document.getElementById('contentModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-
-        // Cerrar modal con tecla ESC
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeModal();
-            }
-        });
-
-        // Dibujo de robot saludando
-        const wallECanvas = document.getElementById('wallECanvas');
-        const wallECtx = wallECanvas.getContext('2d');
-        wallECanvas.width = window.innerWidth;
-        wallECanvas.height = window.innerHeight;
-
-        let drawingRobot = false;
-
-        function drawRobot() {
-            if (drawingRobot) return;
-            drawingRobot = true;
-            wallECtx.clearRect(0, 0, wallECanvas.width, wallECanvas.height);
-
-            const centerX = wallECanvas.width / 2;
-            const centerY = wallECanvas.height / 2;
-            const scale = Math.min(wallECanvas.width, wallECanvas.height) / 800;
-
-            wallECtx.strokeStyle = '#00a8ff';
-            wallECtx.lineWidth = 3;
-            wallECtx.lineCap = 'round';
-            wallECtx.lineJoin = 'round';
-            wallECtx.shadowBlur = 15;
-            wallECtx.shadowColor = '#00a8ff';
-
-            const lines = [
-                [[centerX - 60*scale, centerY - 20*scale], [centerX + 60*scale, centerY - 20*scale]],
-                [[centerX + 60*scale, centerY - 20*scale], [centerX + 60*scale, centerY + 80*scale]],
-                [[centerX + 60*scale, centerY + 80*scale], [centerX - 60*scale, centerY + 80*scale]],
-                [[centerX - 60*scale, centerY + 80*scale], [centerX - 60*scale, centerY - 20*scale]],
-                [[centerX - 40*scale, centerY - 20*scale], [centerX - 40*scale, centerY - 60*scale]],
-                [[centerX - 40*scale, centerY - 60*scale], [centerX + 40*scale, centerY - 60*scale]],
-                [[centerX + 40*scale, centerY - 60*scale], [centerX + 40*scale, centerY - 20*scale]],
-                [[centerX, centerY - 60*scale], [centerX, centerY - 80*scale]],
-                [[centerX - 25*scale, centerY - 50*scale], [centerX - 15*scale, centerY - 50*scale]],
-                [[centerX - 15*scale, centerY - 50*scale], [centerX - 15*scale, centerY - 35*scale]],
-                [[centerX - 15*scale, centerY - 35*scale], [centerX - 25*scale, centerY - 35*scale]],
-                [[centerX - 25*scale, centerY - 35*scale], [centerX - 25*scale, centerY - 50*scale]],
-                [[centerX + 15*scale, centerY - 50*scale], [centerX + 25*scale, centerY - 50*scale]],
-                [[centerX + 25*scale, centerY - 50*scale], [centerX + 25*scale, centerY - 35*scale]],
-                [[centerX + 25*scale, centerY - 35*scale], [centerX + 15*scale, centerY - 35*scale]],
-                [[centerX + 15*scale, centerY - 35*scale], [centerX + 15*scale, centerY - 50*scale]],
-                [[centerX - 30*scale, centerY + 10*scale], [centerX + 30*scale, centerY + 10*scale]],
-                [[centerX + 30*scale, centerY + 10*scale], [centerX + 30*scale, centerY + 40*scale]],
-                [[centerX + 30*scale, centerY + 40*scale], [centerX - 30*scale, centerY + 40*scale]],
-                [[centerX - 30*scale, centerY + 40*scale], [centerX - 30*scale, centerY + 10*scale]],
-                [[centerX - 20*scale, centerY + 18*scale], [centerX + 20*scale, centerY + 18*scale]],
-                [[centerX - 20*scale, centerY + 25*scale], [centerX + 20*scale, centerY + 25*scale]],
-                [[centerX - 20*scale, centerY + 32*scale], [centerX + 20*scale, centerY + 32*scale]],
-                [[centerX - 60*scale, centerY + 10*scale], [centerX - 80*scale, centerY + 10*scale]],
-                [[centerX - 80*scale, centerY + 10*scale], [centerX - 80*scale, centerY + 50*scale]],
-                [[centerX + 60*scale, centerY + 10*scale], [centerX + 80*scale, centerY + 10*scale]],
-                [[centerX + 80*scale, centerY + 10*scale], [centerX + 90*scale, centerY - 20*scale]],
-                [[centerX + 90*scale, centerY - 20*scale], [centerX + 100*scale, centerY - 40*scale]],
-                [[centerX + 95*scale, centerY - 45*scale], [centerX + 110*scale, centerY - 50*scale]],
-                [[centerX + 95*scale, centerY - 40*scale], [centerX + 110*scale, centerY - 35*scale]],
-                [[centerX + 95*scale, centerY - 35*scale], [centerX + 110*scale, centerY - 30*scale]],
-                [[centerX - 40*scale, centerY + 80*scale], [centerX - 40*scale, centerY + 120*scale]],
-                [[centerX - 40*scale, centerY + 120*scale], [centerX - 50*scale, centerY + 120*scale]],
-                [[centerX - 40*scale, centerY + 120*scale], [centerX - 30*scale, centerY + 120*scale]],
-                [[centerX + 40*scale, centerY + 80*scale], [centerX + 40*scale, centerY + 120*scale]],
-                [[centerX + 40*scale, centerY + 120*scale], [centerX + 30*scale, centerY + 120*scale]],
-                [[centerX + 40*scale, centerY + 120*scale], [centerX + 50*scale, centerY + 120*scale]],
-            ];
-
-            let currentLine = 0;
-
-            function animateLine() {
-                if (currentLine >= lines.length) {
-                    drawingRobot = false;
-                    setTimeout(() => {
-                        wallECtx.clearRect(0, 0, wallECanvas.width, wallECanvas.height);
-                        setTimeout(drawRobot, 3000);
-                    }, 3000);
-                    return;
-                }
-
-                const line = lines[currentLine];
-                wallECtx.beginPath();
-                wallECtx.moveTo(line[0][0], line[0][1]);
-                wallECtx.lineTo(line[1][0], line[1][1]);
-                wallECtx.stroke();
-
-                currentLine++;
-                setTimeout(animateLine, 40);
-            }
-
-            animateLine();
-        }
-
-        drawRobot();
-
-        window.addEventListener('resize', () => {
-            wallECanvas.width = window.innerWidth;
-            wallECanvas.height = window.innerHeight;
-        });
-
-        document.addEventListener('mousemove', (e) => {
-            const cursor = document.createElement('div');
-            cursor.style.position = 'fixed';
-            cursor.style.width = '5px';
-            cursor.style.height = '5px';
-            cursor.style.borderRadius = '50%';
-            cursor.style.background = '#00a8ff';
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            cursor.style.pointerEvents = 'none';
-            cursor.style.zIndex = '9999';
-            cursor.style.opacity = '0.8';
-            document.body.appendChild(cursor);
-
-            setTimeout(() => {
-                cursor.style.transition = 'all 0.5s ease';
-                cursor.style.opacity = '0';
-                cursor.style.transform = 'scale(2)';
-            }, 10);
-
-            setTimeout(() => {
-                cursor.remove();
-            }, 500);
-        });
-    </script>
-</body>
-</html>
+            modal.style.display =
