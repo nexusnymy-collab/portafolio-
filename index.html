@@ -13,8 +13,8 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
-            color: #00a8ff;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
+            color: #2c3e50;
             min-height: 100vh;
             overflow-x: hidden;
         }
@@ -27,36 +27,10 @@
             width: 100%;
             height: 100%;
             background: 
-                linear-gradient(90deg, rgba(0, 168, 255, 0.03) 1px, transparent 1px),
-                linear-gradient(rgba(0, 168, 255, 0.03) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: gridMove 20s linear infinite;
+                repeating-linear-gradient(90deg, rgba(52, 152, 219, 0.03) 0px, transparent 1px, transparent 40px, rgba(52, 152, 219, 0.03) 41px),
+                repeating-linear-gradient(0deg, rgba(52, 152, 219, 0.03) 0px, transparent 1px, transparent 40px, rgba(52, 152, 219, 0.03) 41px);
             pointer-events: none;
             z-index: 0;
-        }
-
-        @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
-        }
-
-        .particle {
-            position: fixed;
-            width: 3px;
-            height: 3px;
-            background: #00a8ff;
-            border-radius: 50%;
-            opacity: 0.5;
-            pointer-events: none;
-            animation: float 15s infinite;
-            z-index: 1;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
-            10% { opacity: 0.5; }
-            90% { opacity: 0.5; }
-            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
         }
 
         .container {
@@ -71,56 +45,52 @@
             text-align: center;
             margin-bottom: 60px;
             padding: 40px 20px;
-            background: rgba(0, 0, 0, 0.7);
-            border: 2px solid #00a8ff;
-            border-radius: 20px;
-            box-shadow: 0 0 30px rgba(0, 168, 255, 0.3);
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
             transition: all 0.3s ease;
         }
 
         header:hover {
-            box-shadow: 0 0 50px rgba(0, 168, 255, 0.5);
-            transform: translateY(-5px);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
+            transform: translateY(-3px);
         }
 
         .university-info {
-            background: rgba(0, 168, 255, 0.1);
-            border: 1px solid #00a8ff;
-            border-radius: 15px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            border-radius: 12px;
             padding: 25px;
             margin: 25px auto;
             text-align: center;
             max-width: 800px;
+            box-shadow: 0 3px 15px rgba(52, 152, 219, 0.2);
         }
 
         .university-info h3 {
-            color: #00a8ff;
+            color: white;
             font-size: 1.5em;
             margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 0 0 10px rgba(0, 168, 255, 0.5);
-        }
-
-        .university-info p {
-            color: #ffffff;
-            font-size: 1.1em;
-            margin: 8px 0;
+            font-weight: 600;
             letter-spacing: 1px;
         }
 
-        h1 {
-            font-size: 3em;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            margin-bottom: 20px;
-            text-shadow: 0 0 20px rgba(0, 168, 255, 0.8);
-            animation: glow 2s ease-in-out infinite alternate;
+        .university-info p {
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.1em;
+            margin: 8px 0;
+            font-weight: 400;
         }
 
-        @keyframes glow {
-            from { text-shadow: 0 0 20px rgba(0, 168, 255, 0.8); }
-            to { text-shadow: 0 0 30px rgba(0, 168, 255, 1), 0 0 40px rgba(0, 168, 255, 0.6); }
+        h1 {
+            font-size: 2.8em;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .info {
@@ -132,23 +102,26 @@
         }
 
         .info-item {
-            padding: 10px 20px;
-            background: rgba(0, 168, 255, 0.1);
-            border: 1px solid #00a8ff;
-            border-radius: 10px;
+            padding: 12px 24px;
+            background: white;
+            border-left: 4px solid #3498db;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
         .info-label {
-            color: #00a8ff;
-            font-size: 0.9em;
+            color: #7f8c8d;
+            font-size: 0.85em;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
+            font-weight: 600;
         }
 
         .info-value {
-            color: #ffffff;
+            color: #2c3e50;
             font-size: 1.1em;
             margin-top: 5px;
+            font-weight: 500;
         }
 
         .units-container {
@@ -159,40 +132,41 @@
         }
 
         .unit {
-            background: rgba(0, 0, 0, 0.6);
-            border: 2px solid #00a8ff;
-            border-radius: 20px;
+            background: white;
+            border-radius: 15px;
             padding: 30px;
-            transition: all 0.4s ease;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-left: 5px solid #3498db;
         }
 
         .unit:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 50px rgba(0, 168, 255, 0.4);
-            border-color: #00ffff;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.15);
         }
 
         .unit-title {
-            font-size: 2em;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
+            font-size: 1.8em;
+            margin-bottom: 25px;
+            font-weight: 600;
             display: flex;
             align-items: center;
             gap: 15px;
+            color: #2c3e50;
         }
 
         .unit-number {
             width: 50px;
             height: 50px;
-            background: #00a8ff;
-            color: #000;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 10px;
-            font-weight: bold;
-            font-size: 1.5em;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1.3em;
+            box-shadow: 0 3px 10px rgba(52, 152, 219, 0.3);
         }
 
         .links-list {
@@ -205,49 +179,61 @@
         }
 
         .links-list li:hover {
-            transform: translateX(10px);
+            transform: translateX(5px);
         }
 
         .links-list button {
-            color: #00a8ff;
-            background: rgba(0, 168, 255, 0.1);
-            border: 1px solid #00a8ff;
-            font-size: 1.1em;
+            color: #2c3e50;
+            background: #f8f9fa;
+            border: 2px solid #e0e6ed;
+            font-size: 1.05em;
             display: block;
             width: 100%;
             text-align: left;
-            padding: 12px 20px;
-            border-radius: 8px;
+            padding: 14px 20px;
+            border-radius: 10px;
             transition: all 0.3s ease;
             cursor: pointer;
             font-family: inherit;
+            font-weight: 500;
         }
 
         .links-list button::before {
-            content: '▶';
-            margin-right: 10px;
+            content: '📘';
+            margin-right: 12px;
+            font-size: 1.1em;
+        }
+
+        .links-list button[data-type="pdf"]::before {
+            content: '📄';
         }
 
         .links-list button:hover {
-            background: rgba(0, 168, 255, 0.3);
-            box-shadow: 0 0 20px rgba(0, 168, 255, 0.5);
-            color: #ffffff;
-            border-color: #00ffff;
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.2);
         }
 
         .links-list button:disabled {
-            opacity: 0.5;
+            opacity: 0.4;
             cursor: not-allowed;
+            background: #ecf0f1;
+        }
+
+        .links-list button:disabled::before {
+            content: '🔒';
         }
 
         .content-display {
             display: none;
-            background: rgba(0, 0, 0, 0.8);
-            border: 2px solid #00a8ff;
-            border-radius: 20px;
-            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            padding: 35px;
             margin-top: 40px;
             animation: fadeIn 0.5s ease;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         .content-display.active {
@@ -265,37 +251,39 @@
             align-items: center;
             margin-bottom: 30px;
             padding-bottom: 20px;
-            border-bottom: 2px solid #00a8ff;
+            border-bottom: 3px solid #3498db;
         }
 
         .content-header h2 {
-            color: #00a8ff;
-            font-size: 2em;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            color: #2c3e50;
+            font-size: 1.9em;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
 
         .close-btn {
-            background: #00a8ff;
-            color: #000;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
             border: none;
             padding: 10px 20px;
-            border-radius: 10px;
-            font-size: 1.1em;
-            font-weight: bold;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(231, 76, 60, 0.3);
         }
 
         .close-btn:hover {
-            background: #00ffff;
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            background: linear-gradient(135deg, #c0392b, #a93226);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
         }
 
         .code-container {
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid #00a8ff;
+            background: #f8f9fa;
+            border: 2px solid #e0e6ed;
+            border-left: 5px solid #3498db;
             border-radius: 10px;
             padding: 20px;
             margin-bottom: 20px;
@@ -303,11 +291,11 @@
         }
 
         .code-container pre {
-            color: #00ffff;
+            color: #2c3e50;
             white-space: pre-wrap;
             word-wrap: break-word;
-            font-family: 'Courier New', monospace;
-            font-size: 0.95em;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.92em;
             line-height: 1.6;
             margin: 0;
         }
@@ -317,32 +305,60 @@
         }
 
         .content-section h3 {
-            color: #00a8ff;
+            color: #2c3e50;
             font-size: 1.5em;
             margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-weight: 600;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
         }
 
         .content-section p {
-            color: #ffffff;
+            color: #555;
             line-height: 1.8;
             margin-bottom: 15px;
         }
 
-        .scan-line {
-            position: fixed;
+        .pdf-container {
             width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #00a8ff, transparent);
-            animation: scan 4s linear infinite;
-            pointer-events: none;
-            z-index: 3;
+            height: 800px;
+            border: 2px solid #e0e6ed;
+            border-radius: 10px;
+            overflow: hidden;
         }
 
-        @keyframes scan {
-            0% { top: 0; }
-            100% { top: 100%; }
+        .pdf-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .file-upload-area {
+            border: 3px dashed #3498db;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            background: #f8f9fa;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .file-upload-area:hover {
+            background: #e8f4f8;
+            border-color: #2980b9;
+        }
+
+        .file-upload-area input {
+            display: none;
+        }
+
+        .file-info {
+            margin-top: 15px;
+            padding: 10px;
+            background: white;
+            border-radius: 8px;
+            border-left: 4px solid #27ae60;
         }
 
         @media (max-width: 768px) {
@@ -367,12 +383,14 @@
             .content-header h2 {
                 font-size: 1.5em;
             }
+
+            .pdf-container {
+                height: 600px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="scan-line"></div>
-
     <div class="container">
         <header>
             <div class="university-info">
@@ -404,6 +422,7 @@
                     <li><button onclick="mostrarContenido('graficador')">Graficador</button></li>
                     <li><button onclick="mostrarContenido('raphson')">Método Raphson</button></li>
                     <li><button onclick="mostrarContenido('exposicion')">Exposición de Raphson</button></li>
+                    <li><button onclick="mostrarContenido('cargar_archivo')" data-type="pdf">Cargar PDF/Archivo</button></li>
                 </ul>
             </div>
 
@@ -413,8 +432,9 @@
                     Unidad 2
                 </h2>
                 <ul class="links-list">
-                    <li><button onclick="mostrarContenido('TRABAJO_METODOS_NUMERICOS ')">TRABAJO_METODOS_NUMERICOS </button></li>
-                    <li><button disabled>TRABAJO_METODOS_NUMERICOS </button></li>
+                    <li><button onclick="mostrarContenido('trabajo_metodos')">TRABAJO MÉTODOS NUMÉRICOS</button></li>
+                    <li><button onclick="mostrarContenido('cargar_archivo')" data-type="pdf">Cargar PDF/Archivo</button></li>
+                    <li><button disabled>Próximamente</button></li>
                 </ul>
             </div>
         </div>
@@ -429,16 +449,6 @@
     </div>
 
     <script>
-        // Crear partículas
-        for(let i = 0; i < 30; i++) {
-            let particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 15 + 's';
-            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-            document.body.appendChild(particle);
-        }
-
         // Contenidos de los archivos
         const contenidos = {
             identificador: {
@@ -670,12 +680,12 @@ if __name__ == "__main__":
                         </div>
                         
                         <h3>Características Principales</h3>
-                        <p><strong style="color: #00ffff;">Ventajas:</strong></p>
+                        <p><strong style="color: #3498db;">Ventajas:</strong></p>
                         <p>• Convergencia cuadrática cuando se está cerca de la raíz</p>
                         <p>• Muy eficiente con buenas aproximaciones iniciales</p>
                         <p>• Requiere pocas iteraciones</p>
                         <br>
-                        <p><strong style="color: #00ffff;">Desventajas:</strong></p>
+                        <p><strong style="color: #e74c3c;">Desventajas:</strong></p>
                         <p>• Requiere calcular la derivada</p>
                         <p>• Puede no converger con malas aproximaciones iniciales</p>
                         <p>• Problemas cuando f'(x) = 0</p>
@@ -719,35 +729,57 @@ Raíz aproximada: 1.41421 (√2 ≈ 1.41421356...)</pre>
                         <p>• Ingeniería y física computacional</p>
                     </div>
                 `
+            },
+            trabajo_metodos: {
+                titulo: "TRABAJO MÉTODOS NUMÉRICOS",
+                html: `
+                    <div class="content-section">
+                        <h3>Trabajo de Métodos Numéricos</h3>
+                        <p>Contenido del trabajo práctico de métodos numéricos de la Unidad 2.</p>
+                    </div>
+                    <div class="code-container">
+                        <pre># Aquí puedes agregar el código del trabajo
+# Por ejemplo:
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Tu código aquí...</pre>
+                    </div>
+                `
+            },
+            cargar_archivo: {
+                titulo: "Cargar PDF o Archivo",
+                html: `
+                    <div class="content-section">
+                        <h3>Cargar Archivo</h3>
+                        <p>Puedes cargar archivos PDF o de código para visualizarlos directamente en el portafolio.</p>
+                        
+                        <div class="file-upload-area" onclick="document.getElementById('fileInput').click()">
+                            <h3 style="color: #3498db; margin-bottom: 15px;">📁 Haz clic para seleccionar un archivo</h3>
+                            <p style="color: #7f8c8d;">Formatos soportados: PDF, Python (.py), Text (.txt), JavaScript (.js)</p>
+                            <input type="file" id="fileInput" accept=".pdf,.py,.txt,.js,.html,.css" onchange="cargarArchivo(event)">
+                        </div>
+                        
+                        <div id="fileContent"></div>
+                    </div>
+                `
             }
         };
 
-        // Función para mostrar contenido
-        function mostrarContenido(tipo) {
-            const display = document.getElementById('contentDisplay');
-            const title = document.getElementById('contentTitle');
-            const body = document.getElementById('contentBody');
+        // Función para cargar archivos
+        function cargarArchivo(event) {
+            const file = event.target.files[0];
+            const fileContent = document.getElementById('fileContent');
             
-            if (contenidos[tipo]) {
-                title.textContent = contenidos[tipo].titulo;
-                body.innerHTML = contenidos[tipo].html;
-                display.classList.add('active');
-                
-                // Scroll suave hacia el contenido
-                setTimeout(() => {
-                    display.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 100);
-            }
-        }
-
-        // Función para cerrar contenido
-        function cerrarContenido() {
-            const display = document.getElementById('contentDisplay');
-            display.classList.remove('active');
+            if (!file) return;
             
-            // Scroll hacia arriba
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
-</body>
-</html>
+            const reader = new FileReader();
+            
+            if (file.type === 'application/pdf') {
+                reader.onload = function(e) {
+                    const base64 = e.target.result;
+                    fileContent.innerHTML = `
+                        <div class="file-info">
+                            <strong>📄 Archivo cargado:</strong> ${file.name} (${(file.size / 1024).toFixed(2)} KB)
+                        </div>
