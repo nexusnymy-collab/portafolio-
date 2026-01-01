@@ -19,26 +19,10 @@
             overflow-x: hidden;
         }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                repeating-linear-gradient(90deg, rgba(52, 152, 219, 0.03) 0px, transparent 1px, transparent 40px, rgba(52, 152, 219, 0.03) 41px),
-                repeating-linear-gradient(0deg, rgba(52, 152, 219, 0.03) 0px, transparent 1px, transparent 40px, rgba(52, 152, 219, 0.03) 41px);
-            pointer-events: none;
-            z-index: 0;
-        }
-
         .container {
             max-width: 1400px;
             margin: 0 auto;
             padding: 40px 20px;
-            position: relative;
-            z-index: 2;
         }
 
         header {
@@ -48,49 +32,34 @@
             background: white;
             border-radius: 15px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-        }
-
-        header:hover {
-            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
-            transform: translateY(-3px);
         }
 
         .university-info {
-            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            background: linear-gradient(135deg, #3498db, #2980b9);
             border-radius: 12px;
             padding: 25px;
             margin: 25px auto;
-            text-align: center;
             max-width: 800px;
-            box-shadow: 0 3px 15px rgba(52, 152, 219, 0.2);
         }
 
         .university-info h3 {
             color: white;
             font-size: 1.5em;
             margin-bottom: 10px;
-            font-weight: 600;
-            letter-spacing: 1px;
         }
 
         .university-info p {
-            color: rgba(255, 255, 255, 0.95);
+            color: white;
             font-size: 1.1em;
-            margin: 8px 0;
-            font-weight: 400;
         }
 
         h1 {
             font-size: 2.8em;
             font-weight: 700;
-            letter-spacing: 1px;
             margin-bottom: 20px;
-            color: #2c3e50;
             background: linear-gradient(135deg, #3498db, #2980b9);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .info {
@@ -113,7 +82,6 @@
             color: #7f8c8d;
             font-size: 0.85em;
             text-transform: uppercase;
-            letter-spacing: 1px;
             font-weight: 600;
         }
 
@@ -121,38 +89,28 @@
             color: #2c3e50;
             font-size: 1.1em;
             margin-top: 5px;
-            font-weight: 500;
         }
 
         .units-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
             gap: 40px;
-            margin-top: 40px;
         }
 
         .unit {
             background: white;
             border-radius: 15px;
             padding: 30px;
-            transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             border-left: 5px solid #3498db;
-        }
-
-        .unit:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.15);
         }
 
         .unit-title {
             font-size: 1.8em;
             margin-bottom: 25px;
-            font-weight: 600;
             display: flex;
             align-items: center;
             gap: 15px;
-            color: #2c3e50;
         }
 
         .unit-number {
@@ -166,7 +124,6 @@
             border-radius: 12px;
             font-weight: 700;
             font-size: 1.3em;
-            box-shadow: 0 3px 10px rgba(52, 152, 219, 0.3);
         }
 
         .links-list {
@@ -175,11 +132,6 @@
 
         .links-list li {
             margin-bottom: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .links-list li:hover {
-            transform: translateX(5px);
         }
 
         .links-list button {
@@ -187,43 +139,30 @@
             background: #f8f9fa;
             border: 2px solid #e0e6ed;
             font-size: 1.05em;
-            display: block;
             width: 100%;
             text-align: left;
             padding: 14px 20px;
             border-radius: 10px;
-            transition: all 0.3s ease;
             cursor: pointer;
             font-family: inherit;
             font-weight: 500;
+            transition: all 0.3s;
         }
 
         .links-list button::before {
-            content: '📘';
-            margin-right: 12px;
-            font-size: 1.1em;
+            content: '📘 ';
+            margin-right: 8px;
         }
 
-        .links-list button[data-type="pdf"]::before {
-            content: '📄';
-        }
-
-        .links-list button:hover {
+        .links-list button:hover:not(:disabled) {
             background: #3498db;
             color: white;
             border-color: #3498db;
-            transform: translateX(5px);
-            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.2);
         }
 
         .links-list button:disabled {
             opacity: 0.4;
             cursor: not-allowed;
-            background: #ecf0f1;
-        }
-
-        .links-list button:disabled::before {
-            content: '🔒';
         }
 
         .content-display {
@@ -232,17 +171,11 @@
             border-radius: 15px;
             padding: 35px;
             margin-top: 40px;
-            animation: fadeIn 0.5s ease;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
 
         .content-display.active {
             display: block;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .content-header {
@@ -257,27 +190,16 @@
         .content-header h2 {
             color: #2c3e50;
             font-size: 1.9em;
-            font-weight: 600;
-            letter-spacing: 0.5px;
         }
 
         .close-btn {
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            background: #e74c3c;
             color: white;
             border: none;
             padding: 10px 20px;
             border-radius: 8px;
-            font-size: 1em;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 3px 10px rgba(231, 76, 60, 0.3);
-        }
-
-        .close-btn:hover {
-            background: linear-gradient(135deg, #c0392b, #a93226);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
         }
 
         .code-container {
@@ -286,18 +208,17 @@
             border-left: 5px solid #3498db;
             border-radius: 10px;
             padding: 20px;
-            margin-bottom: 20px;
+            margin: 20px 0;
             overflow-x: auto;
         }
 
         .code-container pre {
             color: #2c3e50;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-family: 'Consolas', monospace;
             font-size: 0.92em;
             line-height: 1.6;
-            margin: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
         }
 
         .content-section {
@@ -308,7 +229,6 @@
             color: #2c3e50;
             font-size: 1.5em;
             margin-bottom: 15px;
-            font-weight: 600;
             border-left: 4px solid #3498db;
             padding-left: 15px;
         }
@@ -319,72 +239,41 @@
             margin-bottom: 15px;
         }
 
-        .pdf-container {
+        .pdf-viewer {
             width: 100%;
             height: 800px;
             border: 2px solid #e0e6ed;
             border-radius: 10px;
-            overflow: hidden;
+            margin-top: 20px;
         }
 
-        .pdf-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .file-upload-area {
+        .file-upload {
             border: 3px dashed #3498db;
             border-radius: 15px;
             padding: 40px;
             text-align: center;
             background: #f8f9fa;
-            margin-bottom: 20px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            margin: 20px 0;
         }
 
-        .file-upload-area:hover {
+        .file-upload:hover {
             background: #e8f4f8;
-            border-color: #2980b9;
-        }
-
-        .file-upload-area input {
-            display: none;
         }
 
         .file-info {
-            margin-top: 15px;
-            padding: 10px;
-            background: white;
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
             border-radius: 8px;
-            border-left: 4px solid #27ae60;
+            margin: 15px 0;
         }
 
         @media (max-width: 768px) {
             .units-container {
                 grid-template-columns: 1fr;
             }
-
-            h1 {
-                font-size: 2em;
-            }
-
-            .info {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .content-header {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .content-header h2 {
-                font-size: 1.5em;
-            }
-
-            .pdf-container {
+            .pdf-viewer {
                 height: 600px;
             }
         }
@@ -397,7 +286,6 @@
                 <h3>Universidad Nacional del Altiplano</h3>
                 <p>Escuela Profesional de Estadística e Informática</p>
             </div>
-
             <h1>Programación Numérica</h1>
             <div class="info">
                 <div class="info-item">
@@ -412,7 +300,7 @@
         </header>
 
         <div class="units-container">
-            <div class="unit" id="unit1">
+            <div class="unit">
                 <h2 class="unit-title">
                     <span class="unit-number">01</span>
                     Unidad 1
@@ -422,16 +310,18 @@
                     <li><button onclick="mostrarContenido('graficador')">Graficador</button></li>
                     <li><button onclick="mostrarContenido('raphson')">Método Raphson</button></li>
                     <li><button onclick="mostrarContenido('exposicion')">Exposición de Raphson</button></li>
+                    <li><button onclick="mostrarContenido('cargar')">📄 Cargar PDF/Código</button></li>
                 </ul>
             </div>
 
-            <div class="unit" id="unit2">
+            <div class="unit">
                 <h2 class="unit-title">
                     <span class="unit-number">02</span>
                     Unidad 2
                 </h2>
                 <ul class="links-list">
-                    <li><button onclick="mostrarContenido('TRABAJO_METODOS_NUMERICOS (2).pdf')">indice h</button></li>
+                    <li><button onclick="mostrarContenido('trabajo')">TRABAJO MÉTODOS NUMÉRICOS</button></li>
+                    <li><button onclick="mostrarContenido('cargar')">📄 Cargar PDF/Código</button></li>
                     <li><button disabled>Próximamente</button></li>
                 </ul>
             </div>
@@ -447,7 +337,6 @@
     </div>
 
     <script>
-        // Contenidos de los archivos
         const contenidos = {
             identificador: {
                 titulo: "Identificador de Funciones",
@@ -460,32 +349,24 @@
                         <pre>import re
 
 def identificar_funcion(expresion):
-    """
-    Identifica el tipo de función basándose en su expresión
-    """
+    """Identifica el tipo de función basándose en su expresión"""
     expresion = expresion.lower().replace(" ", "")
     
-    # Función lineal: ax + b
     if re.match(r'^[+-]?\\d*x[+-]?\\d+$|^[+-]?\\d*x$', expresion):
         return "Función Lineal"
     
-    # Función cuadrática: ax² + bx + c
     if 'x**2' in expresion or 'x²' in expresion:
         return "Función Cuadrática"
     
-    # Función exponencial: a^x
     if re.search(r'\\d+\\*\\*x|\\d+\\^x', expresion):
         return "Función Exponencial"
     
-    # Función logarítmica
     if 'log' in expresion or 'ln' in expresion:
         return "Función Logarítmica"
     
-    # Función trigonométrica
     if any(func in expresion for func in ['sin', 'cos', 'tan']):
         return "Función Trigonométrica"
     
-    # Función polinómica (grado > 2)
     if re.search(r'x\\*\\*[3-9]|x\\^[3-9]', expresion):
         return "Función Polinómica de grado superior"
     
@@ -514,33 +395,21 @@ if __name__ == "__main__":
                 html: `
                     <div class="content-section">
                         <h3>Descripción</h3>
-                        <p>Programa para graficar funciones matemáticas utilizando matplotlib y numpy.</p>
+                        <p>Programa para graficar funciones matemáticas.</p>
                     </div>
                     <div class="code-container">
                         <pre>import numpy as np
 import matplotlib.pyplot as plt
 
-def graficar_funcion(funcion, inicio=-10, fin=10, titulo="Gráfica de Función"):
-    """
-    Grafica una función matemática en un rango dado
-    
-    Parámetros:
-    - funcion: función lambda o string evaluable
-    - inicio: valor inicial del eje x
-    - fin: valor final del eje x
-    - titulo: título de la gráfica
-    """
-    # Crear array de valores x
+def graficar_funcion(funcion, inicio=-10, fin=10, titulo="Gráfica"):
     x = np.linspace(inicio, fin, 1000)
     
     try:
-        # Evaluar la función
         if isinstance(funcion, str):
             y = eval(funcion)
         else:
             y = funcion(x)
         
-        # Crear la gráfica
         plt.figure(figsize=(10, 6))
         plt.plot(x, y, 'b-', linewidth=2, label='f(x)')
         plt.axhline(y=0, color='k', linestyle='-', alpha=0.3)
@@ -550,62 +419,30 @@ def graficar_funcion(funcion, inicio=-10, fin=10, titulo="Gráfica de Función")
         plt.ylabel('f(x)', fontsize=12)
         plt.title(titulo, fontsize=14, fontweight='bold')
         plt.legend()
-        plt.tight_layout()
         plt.show()
-        
     except Exception as e:
-        print(f"Error al graficar: {e}")
+        print(f"Error: {e}")
 
-# Ejemplos de uso
-if __name__ == "__main__":
-    # Función cuadrática
-    graficar_funcion(lambda x: x**2 - 4*x + 3, 
-                     titulo="Función Cuadrática: f(x) = x² - 4x + 3")
-    
-    # Función seno
-    graficar_funcion(lambda x: np.sin(x), 
-                     inicio=-2*np.pi, 
-                     fin=2*np.pi,
-                     titulo="Función Seno: f(x) = sin(x)")
-    
-    # Función exponencial
-    graficar_funcion(lambda x: np.exp(x), 
-                     inicio=-2, 
-                     fin=2,
-                     titulo="Función Exponencial: f(x) = e^x")</pre>
+# Ejemplos
+graficar_funcion(lambda x: x**2 - 4*x + 3, 
+                 titulo="f(x) = x² - 4x + 3")</pre>
                     </div>
                 `
             },
             raphson: {
-                titulo: "Método de Newton-Raphson",
+                titulo: "Método Newton-Raphson",
                 html: `
                     <div class="content-section">
                         <h3>Descripción</h3>
-                        <p>Implementación del método de Newton-Raphson para encontrar raíces de funciones.</p>
+                        <p>Implementación del método de Newton-Raphson.</p>
                     </div>
                     <div class="code-container">
                         <pre>import numpy as np
 
 def derivada_numerica(f, x, h=1e-5):
-    """
-    Calcula la derivada numérica de una función en un punto
-    usando diferencias finitas centrales
-    """
     return (f(x + h) - f(x - h)) / (2 * h)
 
 def newton_raphson(f, x0, tolerancia=1e-7, max_iter=100):
-    """
-    Método de Newton-Raphson para encontrar raíces
-    
-    Parámetros:
-    - f: función a evaluar
-    - x0: aproximación inicial
-    - tolerancia: criterio de parada
-    - max_iter: número máximo de iteraciones
-    
-    Retorna:
-    - raíz aproximada y número de iteraciones
-    """
     x = x0
     iteraciones = []
     
@@ -613,171 +450,168 @@ def newton_raphson(f, x0, tolerancia=1e-7, max_iter=100):
         fx = f(x)
         fpx = derivada_numerica(f, x)
         
-        # Verificar división por cero
         if abs(fpx) < 1e-10:
-            print("Derivada muy cercana a cero. El método no converge.")
+            print("Derivada cercana a cero")
             return None, iteraciones
         
-        # Fórmula de Newton-Raphson
         x_nuevo = x - fx / fpx
         
         iteraciones.append({
             'iteracion': i + 1,
             'x': x,
             'f(x)': fx,
-            "f'(x)": fpx,
             'x_nuevo': x_nuevo
         })
         
-        # Criterio de parada
         if abs(x_nuevo - x) < tolerancia:
-            print(f"\\nConvergencia alcanzada en {i + 1} iteraciones")
-            print(f"Raíz aproximada: {x_nuevo:.10f}")
-            print(f"f(raíz) = {f(x_nuevo):.2e}")
+            print(f"Convergencia en {i + 1} iteraciones")
             return x_nuevo, iteraciones
         
         x = x_nuevo
     
-    print("\\nNo se alcanzó la convergencia en el número máximo de iteraciones")
     return x, iteraciones
 
-# Ejemplo de uso
-if __name__ == "__main__":
-    # Ejemplo 1: f(x) = x² - 2 (raíz de 2)
-    print("=== Encontrar √2 ===")
-    f1 = lambda x: x**2 - 2
-    raiz, hist = newton_raphson(f1, x0=1.0)
-    
-    print("\\n--- Historial de iteraciones ---")
-    for iter_data in hist:
-        print(f"Iteración {iter_data['iteracion']}: x = {iter_data['x']:.8f}")
-    
-    # Ejemplo 2: f(x) = x³ - x - 2
-    print("\\n\\n=== Resolver x³ - x - 2 = 0 ===")
-    f2 = lambda x: x**3 - x - 2
-    raiz2, hist2 = newton_raphson(f2, x0=1.5)
-    
-    # Ejemplo 3: f(x) = cos(x) - x
-    print("\\n\\n=== Resolver cos(x) = x ===")
-    f3 = lambda x: np.cos(x) - x
-    raiz3, hist3 = newton_raphson(f3, x0=1.0)</pre>
+# Ejemplo: √2
+f = lambda x: x**2 - 2
+raiz, hist = newton_raphson(f, x0=1.0)
+print(f"√2 ≈ {raiz:.10f}")</pre>
                     </div>
                 `
             },
             exposicion: {
-                titulo: "Exposición del Método de Newton-Raphson",
+                titulo: "Exposición Newton-Raphson",
                 html: `
                     <div class="content-section">
                         <h3>Método de Newton-Raphson</h3>
-                        <p>El método de Newton-Raphson es un algoritmo eficiente para encontrar aproximaciones de los ceros o raíces de una función real.</p>
+                        <p>Algoritmo para encontrar raíces de funciones.</p>
                         
-                        <h3>Fundamento Matemático</h3>
-                        <p>La fórmula iterativa del método es:</p>
+                        <h3>Fórmula</h3>
                         <div class="code-container">
                             <pre>x_(n+1) = x_n - f(x_n) / f'(x_n)</pre>
                         </div>
                         
-                        <h3>Características Principales</h3>
-                        <p><strong style="color: #3498db;">Ventajas:</strong></p>
-                        <p>• Convergencia cuadrática cuando se está cerca de la raíz</p>
-                        <p>• Muy eficiente con buenas aproximaciones iniciales</p>
-                        <p>• Requiere pocas iteraciones</p>
-                        <br>
-                        <p><strong style="color: #e74c3c;">Desventajas:</strong></p>
-                        <p>• Requiere calcular la derivada</p>
-                        <p>• Puede no converger con malas aproximaciones iniciales</p>
-                        <p>• Problemas cuando f'(x) = 0</p>
+                        <h3>Ventajas</h3>
+                        <p>• Convergencia cuadrática</p>
+                        <p>• Muy eficiente</p>
+                        <p>• Pocas iteraciones</p>
                         
-                        <h3>Algoritmo</h3>
+                        <h3>Ejemplo</h3>
                         <div class="code-container">
-                            <pre>1. Elegir una aproximación inicial x₀
-2. Para i = 0, 1, 2, ... hasta convergencia:
-   a. Calcular f(xᵢ)
-   b. Calcular f'(xᵢ)
-   c. Calcular xᵢ₊₁ = xᵢ - f(xᵢ)/f'(xᵢ)
-   d. Si |xᵢ₊₁ - xᵢ| < tolerancia, PARAR
-3. Retornar xᵢ₊₁ como aproximación de la raíz</pre>
-                        </div>
-                        
-                        <h3>Ejemplo Numérico</h3>
-                        <p>Encontrar la raíz de f(x) = x² - 2 (√2)</p>
-                        <div class="code-container">
-                            <pre>Iteración 0: x₀ = 1.0
-f(1.0) = -1.0
-f'(1.0) = 2.0
-x₁ = 1.0 - (-1.0)/2.0 = 1.5
+                            <pre>f(x) = x² - 2, x₀ = 1.0
 
-Iteración 1: x₁ = 1.5
-f(1.5) = 0.25
-f'(1.5) = 3.0
-x₂ = 1.5 - 0.25/3.0 ≈ 1.41667
+Iteración 0: x = 1.0
+x₁ = 1.5
 
-Iteración 2: x₂ = 1.41667
-f(1.41667) ≈ 0.00694
-f'(1.41667) ≈ 2.83333
+Iteración 1: x = 1.5
+x₂ ≈ 1.41667
+
+Iteración 2:
 x₃ ≈ 1.41421
 
-Raíz aproximada: 1.41421 (√2 ≈ 1.41421356...)</pre>
+√2 ≈ 1.41421356...</pre>
                         </div>
-                        
-                        <h3>Aplicaciones</h3>
-                        <p>• Resolución de ecuaciones no lineales</p>
-                        <p>• Optimización numérica</p>
-                        <p>• Cálculo de raíces cuadradas y cúbicas</p>
-                        <p>• Ingeniería y física computacional</p>
                     </div>
                 `
             },
-            trabajo_metodos: {
+            trabajo: {
                 titulo: "TRABAJO MÉTODOS NUMÉRICOS",
                 html: `
                     <div class="content-section">
-                        <h3>Trabajo de Métodos Numéricos</h3>
-                        <p>Contenido del trabajo práctico de métodos numéricos de la Unidad 2.</p>
+                        <h3>Trabajo Práctico</h3>
+                        <p>Implementación de métodos numéricos.</p>
                     </div>
                     <div class="code-container">
-                        <pre># Aquí puedes agregar el código del trabajo
-# Por ejemplo:
+                        <pre># Trabajo de Métodos Numéricos
+# Nexu Yohan Mamani Yucra
 
 import numpy as np
-import matplotlib.pyplot as plt
 
 # Tu código aquí...</pre>
                     </div>
                 `
             },
-            cargar_archivo: {
-                titulo: "Cargar PDF o Archivo",
+            cargar: {
+                titulo: "Cargar Archivo",
                 html: `
                     <div class="content-section">
-                        <h3>Cargar Archivo</h3>
-                        <p>Puedes cargar archivos PDF o de código para visualizarlos directamente en el portafolio.</p>
+                        <h3>Cargar PDF o Código</h3>
+                        <p>Selecciona un archivo para visualizarlo:</p>
                         
-                        <div class="file-upload-area" onclick="document.getElementById('fileInput').click()">
-                            <h3 style="color: #3498db; margin-bottom: 15px;">📁 Haz clic para seleccionar un archivo</h3>
-                            <p style="color: #7f8c8d;">Formatos soportados: PDF, Python (.py), Text (.txt), JavaScript (.js)</p>
-                            <input type="file" id="fileInput" accept=".pdf,.py,.txt,.js,.html,.css" onchange="cargarArchivo(event)">
+                        <div class="file-upload" onclick="document.getElementById('fileInput').click()">
+                            <h3 style="color: #3498db;">📁 Seleccionar Archivo</h3>
+                            <p>PDF, Python, JavaScript, HTML, CSS, TXT</p>
+                            <input type="file" id="fileInput" style="display:none" 
+                                   accept=".pdf,.py,.js,.txt,.html,.css,.json,.md" 
+                                   onchange="procesarArchivo(event)">
                         </div>
                         
-                        <div id="fileContent"></div>
+                        <div id="archivoContenido"></div>
                     </div>
                 `
             }
         };
 
-        // Función para cargar archivos
-        function cargarArchivo(event) {
-            const file = event.target.files[0];
-            const fileContent = document.getElementById('fileContent');
+        function mostrarContenido(tipo) {
+            const display = document.getElementById('contentDisplay');
+            const title = document.getElementById('contentTitle');
+            const body = document.getElementById('contentBody');
             
+            if (contenidos[tipo]) {
+                title.textContent = contenidos[tipo].titulo;
+                body.innerHTML = contenidos[tipo].html;
+                display.classList.add('active');
+                
+                setTimeout(() => {
+                    display.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            }
+        }
+
+        function cerrarContenido() {
+            document.getElementById('contentDisplay').classList.remove('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function procesarArchivo(event) {
+            const file = event.target.files[0];
             if (!file) return;
             
+            const contenedor = document.getElementById('archivoContenido');
             const reader = new FileReader();
+            
+            const fileInfo = `
+                <div class="file-info">
+                    <strong>📄 Archivo:</strong> ${file.name}<br>
+                    <strong>📊 Tamaño:</strong> ${(file.size/1024).toFixed(2)} KB<br>
+                    <strong>📅 Fecha:</strong> ${new Date(file.lastModified).toLocaleDateString('es-ES')}
+                </div>
+            `;
             
             if (file.type === 'application/pdf') {
                 reader.onload = function(e) {
-                    const base64 = e.target.result;
-                    fileContent.innerHTML = `
-                        <div class="file-info">
-                            <strong>📄 Archivo cargado:</strong> ${file.name} (${(file.size / 1024).toFixed(2)} KB)
+                    contenedor.innerHTML = fileInfo + `
+                        <iframe class="pdf-viewer" src="${e.target.result}"></iframe>
+                    `;
+                };
+                reader.readAsDataURL(file);
+            } else {
+                reader.onload = function(e) {
+                    const textoEscapado = e.target.result
+                        .replace(/&/g, '&amp;')
+                        .replace(/</g, '&lt;')
+                        .replace(/>/g, '&gt;')
+                        .replace(/"/g, '&quot;')
+                        .replace(/'/g, '&#039;');
+                    
+                    contenedor.innerHTML = fileInfo + `
+                        <div class="code-container">
+                            <pre>${textoEscapado}</pre>
                         </div>
+                    `;
+                };
+                reader.readAsText(file);
+            }
+        }
+    </script>
+</body>
+</html>
