@@ -154,6 +154,10 @@
             margin-right: 8px;
         }
 
+        .links-list button[data-pdf]::before {
+            content: '📄 ';
+        }
+
         .links-list button:hover:not(:disabled) {
             background: #3498db;
             color: white;
@@ -269,6 +273,14 @@
             margin: 15px 0;
         }
 
+        .alert-info {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
         @media (max-width: 768px) {
             .units-container {
                 grid-template-columns: 1fr;
@@ -310,7 +322,7 @@
                     <li><button onclick="mostrarContenido('graficador')">Graficador</button></li>
                     <li><button onclick="mostrarContenido('raphson')">Método Raphson</button></li>
                     <li><button onclick="mostrarContenido('exposicion')">Exposición de Raphson</button></li>
-                    
+                    <li><button onclick="mostrarContenido('cargar')" data-pdf>📤 Cargar Archivo</button></li>
                 </ul>
             </div>
 
@@ -320,12 +332,12 @@
                     Unidad 2
                 </h2>
                 <ul class="links-list">
-                    <li><button onclick="mostrarContenido('TRABAJO_METODOS_NUMERICOS (2).pdf')">TRABAJO MÉTODOS NUMÉRICOS</button></li>
-                     <li><button onclick="mostrarContenido('bise.pdf')">M. biseccion</button></li>
-                     <li><button onclick="mostrarContenido('bise (1).pdf')">M. secante</button></li>
-                     <li><button onclick="mostrarContenido('bise (3).pdf')">M. Punto Fijo</button></li>
-                     <li><button onclick="mostrarContenido('bise (4).pdf')">M. regula falsi </button></li>
-                    <li><button disabled>Próximamente</button></li>
+                    <li><button onclick="mostrarContenido('trabajo_metodos')" data-pdf>TRABAJO MÉTODOS NUMÉRICOS</button></li>
+                    <li><button onclick="mostrarContenido('biseccion')" data-pdf>M. Bisección</button></li>
+                    <li><button onclick="mostrarContenido('secante')" data-pdf>M. Secante</button></li>
+                    <li><button onclick="mostrarContenido('punto_fijo')" data-pdf>M. Punto Fijo</button></li>
+                    <li><button onclick="mostrarContenido('regula_falsi')" data-pdf>M. Regula Falsi</button></li>
+                    <li><button onclick="mostrarContenido('cargar')" data-pdf>📤 Cargar Archivo</button></li>
                 </ul>
             </div>
         </div>
@@ -516,21 +528,89 @@ x₃ ≈ 1.41421
                     </div>
                 `
             },
-            trabajo: {
+            trabajo_metodos: {
                 titulo: "TRABAJO MÉTODOS NUMÉRICOS",
                 html: `
-                    <div class="content-section">
-                        <h3>Trabajo Práctico</h3>
-                        <p>Implementación de métodos numéricos.</p>
+                    <div class="alert-info">
+                        <h3 style="color: #17a2b8; margin-bottom: 10px;">📄 Cargar PDF del Trabajo</h3>
+                        <p>Por favor, carga el archivo PDF del trabajo de métodos numéricos.</p>
                     </div>
-                    <div class="code-container">
-                        <pre># Trabajo de Métodos Numéricos
-# Nexu Yohan Mamani Yucra
-
-import numpy as np
-
-# Tu código aquí...</pre>
+                    <div class="file-upload" onclick="document.getElementById('fileInput_trabajo').click()">
+                        <h3 style="color: #3498db;">📁 Seleccionar PDF</h3>
+                        <p>Haz clic aquí para cargar el archivo</p>
+                        <input type="file" id="fileInput_trabajo" style="display:none" 
+                               accept=".pdf" 
+                               onchange="procesarArchivo(event)">
                     </div>
+                    <div id="archivoContenido"></div>
+                `
+            },
+            biseccion: {
+                titulo: "Método de Bisección",
+                html: `
+                    <div class="alert-info">
+                        <h3 style="color: #17a2b8; margin-bottom: 10px;">📄 Cargar PDF</h3>
+                        <p>Por favor, carga el archivo PDF del método de bisección.</p>
+                    </div>
+                    <div class="file-upload" onclick="document.getElementById('fileInput_biseccion').click()">
+                        <h3 style="color: #3498db;">📁 Seleccionar PDF</h3>
+                        <p>Haz clic aquí para cargar el archivo</p>
+                        <input type="file" id="fileInput_biseccion" style="display:none" 
+                               accept=".pdf" 
+                               onchange="procesarArchivo(event)">
+                    </div>
+                    <div id="archivoContenido"></div>
+                `
+            },
+            secante: {
+                titulo: "Método de la Secante",
+                html: `
+                    <div class="alert-info">
+                        <h3 style="color: #17a2b8; margin-bottom: 10px;">📄 Cargar PDF</h3>
+                        <p>Por favor, carga el archivo PDF del método de la secante.</p>
+                    </div>
+                    <div class="file-upload" onclick="document.getElementById('fileInput_secante').click()">
+                        <h3 style="color: #3498db;">📁 Seleccionar PDF</h3>
+                        <p>Haz clic aquí para cargar el archivo</p>
+                        <input type="file" id="fileInput_secante" style="display:none" 
+                               accept=".pdf" 
+                               onchange="procesarArchivo(event)">
+                    </div>
+                    <div id="archivoContenido"></div>
+                `
+            },
+            punto_fijo: {
+                titulo: "Método del Punto Fijo",
+                html: `
+                    <div class="alert-info">
+                        <h3 style="color: #17a2b8; margin-bottom: 10px;">📄 Cargar PDF</h3>
+                        <p>Por favor, carga el archivo PDF del método del punto fijo.</p>
+                    </div>
+                    <div class="file-upload" onclick="document.getElementById('fileInput_punto').click()">
+                        <h3 style="color: #3498db;">📁 Seleccionar PDF</h3>
+                        <p>Haz clic aquí para cargar el archivo</p>
+                        <input type="file" id="fileInput_punto" style="display:none" 
+                               accept=".pdf" 
+                               onchange="procesarArchivo(event)">
+                    </div>
+                    <div id="archivoContenido"></div>
+                `
+            },
+            regula_falsi: {
+                titulo: "Método de Regula Falsi",
+                html: `
+                    <div class="alert-info">
+                        <h3 style="color: #17a2b8; margin-bottom: 10px;">📄 Cargar PDF</h3>
+                        <p>Por favor, carga el archivo PDF del método de regula falsi.</p>
+                    </div>
+                    <div class="file-upload" onclick="document.getElementById('fileInput_regula').click()">
+                        <h3 style="color: #3498db;">📁 Seleccionar PDF</h3>
+                        <p>Haz clic aquí para cargar el archivo</p>
+                        <input type="file" id="fileInput_regula" style="display:none" 
+                               accept=".pdf" 
+                               onchange="procesarArchivo(event)">
+                    </div>
+                    <div id="archivoContenido"></div>
                 `
             },
             cargar: {
@@ -542,7 +622,7 @@ import numpy as np
                         
                         <div class="file-upload" onclick="document.getElementById('fileInput').click()">
                             <h3 style="color: #3498db;">📁 Seleccionar Archivo</h3>
-                            <p>PDF, Python, JavaScript, HTML, CSS, TXT</p>
+                            <p>PDF, Python, JavaScript, HTML, CSS, TXT, JSON, Markdown</p>
                             <input type="file" id="fileInput" style="display:none" 
                                    accept=".pdf,.py,.js,.txt,.html,.css,.json,.md" 
                                    onchange="procesarArchivo(event)">
@@ -590,7 +670,7 @@ import numpy as np
                 </div>
             `;
             
-            if (file.type === 'application/pdf') {
+            if (file.type === 'application/pdf' || file.name.endsWith('.pdf')) {
                 reader.onload = function(e) {
                     contenedor.innerHTML = fileInfo + `
                         <iframe class="pdf-viewer" src="${e.target.result}"></iframe>
