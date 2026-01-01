@@ -5,290 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Programación Numérica - Portafolio</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
             color: #2c3e50;
             min-height: 100vh;
-            overflow-x: hidden;
         }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
+        .container { max-width: 1400px; margin: 0 auto; padding: 40px 20px; }
         header {
-            text-align: center;
-            margin-bottom: 60px;
-            padding: 40px 20px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            text-align: center; margin-bottom: 60px; padding: 40px 20px;
+            background: white; border-radius: 15px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         }
-
         .university-info {
             background: linear-gradient(135deg, #3498db, #2980b9);
-            border-radius: 12px;
-            padding: 25px;
-            margin: 25px auto;
-            max-width: 800px;
+            border-radius: 12px; padding: 25px; margin: 25px auto; max-width: 800px;
         }
-
-        .university-info h3 {
-            color: white;
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-
-        .university-info p {
-            color: white;
-            font-size: 1.1em;
-        }
-
+        .university-info h3, .university-info p { color: white; }
         h1 {
-            font-size: 2.8em;
-            font-weight: 700;
-            margin-bottom: 20px;
+            font-size: 2.8em; margin-bottom: 20px;
             background: linear-gradient(135deg, #3498db, #2980b9);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
-
-        .info {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-
+        .info { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
         .info-item {
-            padding: 12px 24px;
-            background: white;
-            border-left: 4px solid #3498db;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            padding: 12px 24px; background: white; border-left: 4px solid #3498db;
+            border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
-
-        .info-label {
-            color: #7f8c8d;
-            font-size: 0.85em;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        .info-value {
-            color: #2c3e50;
-            font-size: 1.1em;
-            margin-top: 5px;
-        }
-
         .units-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 40px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 40px;
         }
-
         .unit {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            border-left: 5px solid #3498db;
+            background: white; border-radius: 15px; padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); border-left: 5px solid #3498db;
         }
-
-        .unit-title {
-            font-size: 1.8em;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
+        .unit-title { font-size: 1.8em; margin-bottom: 25px; display: flex; align-items: center; gap: 15px; }
         .unit-number {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 1.3em;
+            width: 50px; height: 50px; background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white; display: flex; align-items: center; justify-content: center;
+            border-radius: 12px; font-weight: 700;
         }
-
-        .links-list {
-            list-style: none;
-        }
-
-        .links-list li {
-            margin-bottom: 15px;
-        }
-
+        .links-list { list-style: none; }
+        .links-list li { margin-bottom: 15px; }
         .links-list button {
-            color: #2c3e50;
-            background: #f8f9fa;
-            border: 2px solid #e0e6ed;
-            font-size: 1.05em;
-            width: 100%;
-            text-align: left;
-            padding: 14px 20px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-family: inherit;
-            font-weight: 500;
-            transition: all 0.3s;
+            color: #2c3e50; background: #f8f9fa; border: 2px solid #e0e6ed;
+            width: 100%; text-align: left; padding: 14px 20px; border-radius: 10px;
+            cursor: pointer; font-family: inherit; transition: all 0.3s;
         }
-
-        .links-list button::before {
-            content: '📘 ';
-            margin-right: 8px;
-        }
-
-        .links-list button[data-pdf]::before {
-            content: '📄 ';
-        }
-
-        .links-list button:hover:not(:disabled) {
-            background: #3498db;
-            color: white;
-            border-color: #3498db;
-        }
-
-        .links-list button:disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-        }
-
+        .links-list button:hover { background: #3498db; color: white; border-color: #3498db; }
         .content-display {
-            display: none;
-            background: white;
-            border-radius: 15px;
-            padding: 35px;
-            margin-top: 40px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            display: none; background: white; border-radius: 15px; padding: 35px;
+            margin-top: 40px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
-
-        .content-display.active {
-            display: block;
-        }
-
+        .content-display.active { display: block; }
         .content-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 3px solid #3498db;
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 30px; border-bottom: 3px solid #3498db; padding-bottom: 20px;
         }
-
-        .content-header h2 {
-            color: #2c3e50;
-            font-size: 1.9em;
-        }
-
-        .close-btn {
-            background: #e74c3c;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
         .code-container {
-            background: #f8f9fa;
-            border: 2px solid #e0e6ed;
-            border-left: 5px solid #3498db;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-            overflow-x: auto;
+            background: #f8f9fa; border: 2px solid #e0e6ed; border-left: 5px solid #3498db;
+            border-radius: 10px; padding: 20px; margin: 20px 0; overflow-x: auto;
         }
-
-        .code-container pre {
-            color: #2c3e50;
-            font-family: 'Consolas', monospace;
-            font-size: 0.92em;
-            line-height: 1.6;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-
-        .content-section {
-            margin-bottom: 30px;
-        }
-
-        .content-section h3 {
-            color: #2c3e50;
-            font-size: 1.5em;
-            margin-bottom: 15px;
-            border-left: 4px solid #3498db;
-            padding-left: 15px;
-        }
-
-        .content-section p {
-            color: #555;
-            line-height: 1.8;
-            margin-bottom: 15px;
-        }
-
-        .pdf-viewer {
-            width: 100%;
-            height: 800px;
-            border: 2px solid #e0e6ed;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        .file-upload {
-            border: 3px dashed #3498db;
-            border-radius: 15px;
-            padding: 40px;
-            text-align: center;
-            background: #f8f9fa;
-            cursor: pointer;
-            margin: 20px 0;
-        }
-
-        .file-upload:hover {
-            background: #e8f4f8;
-        }
-
-        .file-info {
-            background: #d4edda;
-            border-left: 4px solid #28a745;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-        }
-
-        .alert-info {
-            background: #d1ecf1;
-            border-left: 4px solid #17a2b8;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-
-        @media (max-width: 768px) {
-            .units-container {
-                grid-template-columns: 1fr;
-            }
-            .pdf-viewer {
-                height: 600px;
-            }
-        }
+        pre { font-family: 'Consolas', monospace; font-size: 0.9em; line-height: 1.6; }
+        .content-section { margin-bottom: 30px; }
+        .content-section h3 { border-left: 4px solid #3498db; padding-left: 15px; margin-bottom: 15px; }
+        .close-btn { background: #e74c3c; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; }
     </style>
 </head>
 <body>
@@ -313,31 +94,21 @@
 
         <div class="units-container">
             <div class="unit">
-                <h2 class="unit-title">
-                    <span class="unit-number">01</span>
-                    Unidad 1
-                </h2>
+                <h2 class="unit-title"><span class="unit-number">01</span> Unidad 1</h2>
                 <ul class="links-list">
                     <li><button onclick="mostrarContenido('identificador')">Identificador de funciones</button></li>
                     <li><button onclick="mostrarContenido('graficador')">Graficador</button></li>
-                    <li><button onclick="mostrarContenido('raphson')">Método Raphson</button></li>
-                    <li><button onclick="mostrarContenido('exposicion')">Exposición de Raphson</button></li>
-                    <li><button onclick="mostrarContenido('cargar')" data-pdf>📤 Cargar Archivo</button></li>
+                    <li><button onclick="mostrarContenido('raphson')">Método Newton-Raphson</button></li>
                 </ul>
             </div>
 
             <div class="unit">
-                <h2 class="unit-title">
-                    <span class="unit-number">02</span>
-                    Unidad 2
-                </h2>
+                <h2 class="unit-title"><span class="unit-number">02</span> Unidad 2</h2>
                 <ul class="links-list">
-                    <li><button onclick="mostrarContenido('trabajo_metodos')" data-pdf>TRABAJO MÉTODOS NUMÉRICOS</button></li>
-                    <li><button onclick="mostrarContenido('biseccion')" data-pdf>M. Bisección</button></li>
-                    <li><button onclick="mostrarContenido('secante')" data-pdf>M. Secante</button></li>
-                    <li><button onclick="mostrarContenido('punto_fijo')" data-pdf>M. Punto Fijo</button></li>
-                    <li><button onclick="mostrarContenido('regula_falsi')" data-pdf>M. Regula Falsi</button></li>
-                    <li><button onclick="mostrarContenido('cargar')" data-pdf>📤 Cargar Archivo</button></li>
+                    <li><button onclick="mostrarContenido('biseccion')">Método de Bisección</button></li>
+                    <li><button onclick="mostrarContenido('secante')">Método de la Secante</button></li>
+                    <li><button onclick="mostrarContenido('punto_fijo')">Método del Punto Fijo</button></li>
+                    <li><button onclick="mostrarContenido('regula_falsi')">Método de Regula Falsi</button></li>
                 </ul>
             </div>
         </div>
@@ -353,284 +124,90 @@
 
     <script>
         const contenidos = {
-            identificador: {
-                titulo: "Identificador de Funciones",
-                html: `
-                    <div class="content-section">
-                        <h3>Descripción</h3>
-                        <p>Este programa identifica el tipo de función matemática basándose en su expresión algebraica.</p>
-                    </div>
-                    <div class="code-container">
-                        <pre>import re
-
-def identificar_funcion(expresion):
-    """Identifica el tipo de función basándose en su expresión"""
-    expresion = expresion.lower().replace(" ", "")
-    
-    if re.match(r'^[+-]?\\d*x[+-]?\\d+$|^[+-]?\\d*x$', expresion):
-        return "Función Lineal"
-    
-    if 'x**2' in expresion or 'x²' in expresion:
-        return "Función Cuadrática"
-    
-    if re.search(r'\\d+\\*\\*x|\\d+\\^x', expresion):
-        return "Función Exponencial"
-    
-    if 'log' in expresion or 'ln' in expresion:
-        return "Función Logarítmica"
-    
-    if any(func in expresion for func in ['sin', 'cos', 'tan']):
-        return "Función Trigonométrica"
-    
-    if re.search(r'x\\*\\*[3-9]|x\\^[3-9]', expresion):
-        return "Función Polinómica de grado superior"
-    
-    return "Función no identificada o compleja"
-
-# Ejemplo de uso
-if __name__ == "__main__":
-    print("=== Identificador de Funciones ===")
-    funciones_ejemplo = [
-        "2x + 3",
-        "x**2 - 4x + 1",
-        "2**x",
-        "log(x)",
-        "sin(x)",
-        "x**3 + 2x**2 - x + 5"
-    ]
-    
-    for func in funciones_ejemplo:
-        resultado = identificar_funcion(func)
-        print(f"Expresión: {func} → {resultado}")</pre>
-                    </div>
-                `
-            },
-            graficador: {
-                titulo: "Graficador de Funciones",
-                html: `
-                    <div class="content-section">
-                        <h3>Descripción</h3>
-                        <p>Programa para graficar funciones matemáticas.</p>
-                    </div>
-                    <div class="code-container">
-                        <pre>import numpy as np
-import matplotlib.pyplot as plt
-
-def graficar_funcion(funcion, inicio=-10, fin=10, titulo="Gráfica"):
-    x = np.linspace(inicio, fin, 1000)
-    
-    try:
-        if isinstance(funcion, str):
-            y = eval(funcion)
-        else:
-            y = funcion(x)
-        
-        plt.figure(figsize=(10, 6))
-        plt.plot(x, y, 'b-', linewidth=2, label='f(x)')
-        plt.axhline(y=0, color='k', linestyle='-', alpha=0.3)
-        plt.axvline(x=0, color='k', linestyle='-', alpha=0.3)
-        plt.grid(True, alpha=0.3)
-        plt.xlabel('x', fontsize=12)
-        plt.ylabel('f(x)', fontsize=12)
-        plt.title(titulo, fontsize=14, fontweight='bold')
-        plt.legend()
-        plt.show()
-    except Exception as e:
-        print(f"Error: {e}")
-
-# Ejemplos
-graficar_funcion(lambda x: x**2 - 4*x + 3, 
-                 titulo="f(x) = x² - 4x + 3")</pre>
-                    </div>
-                `
-            },
-            raphson: {
-                titulo: "Método Newton-Raphson",
-                html: `
-                    <div class="content-section">
-                        <h3>Descripción</h3>
-                        <p>Implementación del método de Newton-Raphson.</p>
-                    </div>
-                    <div class="code-container">
-                        <pre>import numpy as np
-
-def derivada_numerica(f, x, h=1e-5):
-    return (f(x + h) - f(x - h)) / (2 * h)
-
-def newton_raphson(f, x0, tolerancia=1e-7, max_iter=100):
-    x = x0
-    iteraciones = []
-    
-    for i in range(max_iter):
-        fx = f(x)
-        fpx = derivada_numerica(f, x)
-        
-        if abs(fpx) < 1e-10:
-            print("Derivada cercana a cero")
-            return None, iteraciones
-        
-        x_nuevo = x - fx / fpx
-        
-        iteraciones.append({
-            'iteracion': i + 1,
-            'x': x,
-            'f(x)': fx,
-            'x_nuevo': x_nuevo
-        })
-        
-        if abs(x_nuevo - x) < tolerancia:
-            print(f"Convergencia en {i + 1} iteraciones")
-            return x_nuevo, iteraciones
-        
-        x = x_nuevo
-    
-    return x, iteraciones
-
-# Ejemplo: √2
-f = lambda x: x**2 - 2
-raiz, hist = newton_raphson(f, x0=1.0)
-print(f"√2 ≈ {raiz:.10f}")</pre>
-                    </div>
-                `
-            },
-            exposicion: {
-                titulo: "Exposición Newton-Raphson",
-                html: `
-                    <div class="content-section">
-                        <h3>Método de Newton-Raphson</h3>
-                        <p>Algoritmo para encontrar raíces de funciones.</p>
-                        
-                        <h3>Fórmula</h3>
-                        <div class="code-container">
-                            <pre>x_(n+1) = x_n - f(x_n) / f'(x_n)</pre>
-                        </div>
-                        
-                        <h3>Ventajas</h3>
-                        <p>• Convergencia cuadrática</p>
-                        <p>• Muy eficiente</p>
-                        <p>• Pocas iteraciones</p>
-                        
-                        <h3>Ejemplo</h3>
-                        <div class="code-container">
-                            <pre>f(x) = x² - 2, x₀ = 1.0
-
-Iteración 0: x = 1.0
-x₁ = 1.5
-
-Iteración 1: x = 1.5
-x₂ ≈ 1.41667
-
-Iteración 2:
-x₃ ≈ 1.41421
-
-√2 ≈ 1.41421356...</pre>
-                        </div>
-                    </div>
-                `
-            },
-            trabajo_metodos: {
-                titulo: "TRABAJO MÉTODOS NUMÉRICOS",
-                html: `
-                    <div class="alert-info">
-                        <h3 style="color: #17a2b8; margin-bottom: 10px;">📄 Cargar PDF del Trabajo</h3>
-                        <p>Por favor, carga el archivo PDF del trabajo de métodos numéricos.</p>
-                    </div>
-                    <div class="file-upload" onclick="document.getElementById('fileInput_trabajo').click()">
-                        <h3 style="color: #3498db;">📁 Seleccionar PDF</h3>
-                        <p>Haz clic aquí para cargar el archivo</p>
-                        <input type="file" id="fileInput_trabajo" style="display:none" 
-                               accept=".pdf" 
-                               onchange="procesarArchivo(event)">
-                    </div>
-                    <div id="archivoContenido"></div>
-                `
-            },
             biseccion: {
                 titulo: "Método de Bisección",
                 html: `
-                    <div class="alert-info">
-                        <h3 style="color: #17a2b8; margin-bottom: 10px;">📄 Cargar PDF</h3>
-                        <p>Por favor, carga el archivo PDF del método de bisección.</p>
-                    </div>
-                    <div class="file-upload" onclick="document.getElementById('fileInput_biseccion').click()">
-                        <h3 style="color: #3498db;">📁 Seleccionar PDF</h3>
-                        <p>Haz clic aquí para cargar el archivo</p>
-                        <input type="file" id="fileInput_biseccion" style="display:none" 
-                               accept=".pdf" 
-                               onchange="procesarArchivo(event)">
-                    </div>
-                    <div id="archivoContenido"></div>
-                `
+                    <div class="content-section">
+                        <h3>Introducción</h3>
+                        <p>Se basa en el Teorema de Bolzano: si una función continua f(x) cambia de signo en [a, b], existe al menos una raíz. Es un método cerrado que garantiza convergencia.</p>
+                        <h3>Algoritmo en Python</h3>
+                        <div class="code-container"><pre>
+import numpy as np
+
+def biseccion(f, a, b, tol=1e-6):
+    if f(a) * f(b) >= 0:
+        print("El intervalo no contiene una raíz garantizada.")
+        return None
+    
+    while (b - a) / 2 > tol:
+        c = (a + b) / 2
+        if f(c) == 0: return c
+        elif f(a) * f(c) < 0: b = c
+        else: a = c
+    return (a + b) / 2</pre></div>
+                    </div>`
             },
             secante: {
                 titulo: "Método de la Secante",
                 html: `
-                    <div class="alert-info">
-                        <h3 style="color: #17a2b8; margin-bottom: 10px;">📄 Cargar PDF</h3>
-                        <p>Por favor, carga el archivo PDF del método de la secante.</p>
-                    </div>
-                    <div class="file-upload" onclick="document.getElementById('fileInput_secante').click()">
-                        <h3 style="color: #3498db;">📁 Seleccionar PDF</h3>
-                        <p>Haz clic aquí para cargar el archivo</p>
-                        <input type="file" id="fileInput_secante" style="display:none" 
-                               accept=".pdf" 
-                               onchange="procesarArchivo(event)">
-                    </div>
-                    <div id="archivoContenido"></div>
-                `
+                    <div class="content-section">
+                        <h3>Descripción</h3>
+                        <p>Alternativa eficiente al método de Newton-Raphson que no requiere calcular derivadas complejas, utilizando la pendiente de una línea entre dos puntos.</p>
+                        <h3>Código en Python</h3>
+                        <div class="code-container"><pre>
+def secante(f, x0, x1, tol, max_iter):
+    for i in range(max_iter):
+        fx0, fx1 = f(x0), f(x1)
+        if fx1 - fx0 == 0: return None
+        
+        x_sig = x1 - fx1 * (x1 - x0) / (fx1 - fx0)
+        if abs(x_sig - x1) < tol:
+            return x_sig, i + 1
+        x0, x1 = x1, x_sig
+    return x1, max_iter</pre></div>
+                    </div>`
             },
             punto_fijo: {
                 titulo: "Método del Punto Fijo",
                 html: `
-                    <div class="alert-info">
-                        <h3 style="color: #17a2b8; margin-bottom: 10px;">📄 Cargar PDF</h3>
-                        <p>Por favor, carga el archivo PDF del método del punto fijo.</p>
-                    </div>
-                    <div class="file-upload" onclick="document.getElementById('fileInput_punto').click()">
-                        <h3 style="color: #3498db;">📁 Seleccionar PDF</h3>
-                        <p>Haz clic aquí para cargar el archivo</p>
-                        <input type="file" id="fileInput_punto" style="display:none" 
-                               accept=".pdf" 
-                               onchange="procesarArchivo(event)">
-                    </div>
-                    <div id="archivoContenido"></div>
-                `
+                    <div class="content-section">
+                        <h3>Definición</h3>
+                        <p>Transforma f(x)=0 en x=g(x). El método busca un número p tal que g(p)=p mediante iteraciones sucesivas x_{n+1} = g(x_n).</p>
+                        <h3>Código en Python</h3>
+                        <div class="code-container"><pre>
+import math
+
+def punto_fijo(g, x0, tol, max_iter):
+    for i in range(max_iter):
+        x_nuevo = g(x0)
+        error = abs(x_nuevo - x0)
+        if error < tol:
+            return x_nuevo
+        x0 = x_nuevo
+    return None</pre></div>
+                    </div>`
             },
             regula_falsi: {
                 titulo: "Método de Regula Falsi",
                 html: `
-                    <div class="alert-info">
-                        <h3 style="color: #17a2b8; margin-bottom: 10px;">📄 Cargar PDF</h3>
-                        <p>Por favor, carga el archivo PDF del método de regula falsi.</p>
-                    </div>
-                    <div class="file-upload" onclick="document.getElementById('fileInput_regula').click()">
-                        <h3 style="color: #3498db;">📁 Seleccionar PDF</h3>
-                        <p>Haz clic aquí para cargar el archivo</p>
-                        <input type="file" id="fileInput_regula" style="display:none" 
-                               accept=".pdf" 
-                               onchange="procesarArchivo(event)">
-                    </div>
-                    <div id="archivoContenido"></div>
-                `
-            },
-            cargar: {
-                titulo: "Cargar Archivo",
-                html: `
                     <div class="content-section">
-                        <h3>Cargar PDF o Código</h3>
-                        <p>Selecciona un archivo para visualizarlo:</p>
-                        
-                        <div class="file-upload" onclick="document.getElementById('fileInput').click()">
-                            <h3 style="color: #3498db;">📁 Seleccionar Archivo</h3>
-                            <p>PDF, Python, JavaScript, HTML, CSS, TXT, JSON, Markdown</p>
-                            <input type="file" id="fileInput" style="display:none" 
-                                   accept=".pdf,.py,.js,.txt,.html,.css,.json,.md" 
-                                   onchange="procesarArchivo(event)">
-                        </div>
-                        
-                        <div id="archivoContenido"></div>
-                    </div>
-                `
+                        <h3>Concepto</h3>
+                        <p>Combina la estrategia de "encierro" de la bisección con la eficiencia de la interpolación lineal, trazando una secante entre los puntos del intervalo.</p>
+                        <h3>Código en Python</h3>
+                        <div class="code-container"><pre>
+def regula_falsi(f, a, b, tol, max_iter=100):
+    if f(a) * f(b) >= 0:
+        raise ValueError("La función no cambia de signo.")
+    
+    for i in range(max_iter):
+        fa, fb = f(a), f(b)
+        c = b - (fb * (b - a)) / (fb - fa)
+        fc = f(c)
+        if abs(fc) < tol: return c
+        if fa * fc < 0: b = c
+        else: a = c
+    return c</pre></div>
+                    </div>`
             }
         };
 
@@ -643,57 +220,12 @@ x₃ ≈ 1.41421
                 title.textContent = contenidos[tipo].titulo;
                 body.innerHTML = contenidos[tipo].html;
                 display.classList.add('active');
-                
-                setTimeout(() => {
-                    display.scrollIntoView({ behavior: 'smooth' });
-                }, 100);
+                display.scrollIntoView({ behavior: 'smooth' });
             }
         }
 
         function cerrarContenido() {
             document.getElementById('contentDisplay').classList.remove('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function procesarArchivo(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-            
-            const contenedor = document.getElementById('archivoContenido');
-            const reader = new FileReader();
-            
-            const fileInfo = `
-                <div class="file-info">
-                    <strong>📄 Archivo:</strong> ${file.name}<br>
-                    <strong>📊 Tamaño:</strong> ${(file.size/1024).toFixed(2)} KB<br>
-                    <strong>📅 Fecha:</strong> ${new Date(file.lastModified).toLocaleDateString('es-ES')}
-                </div>
-            `;
-            
-            if (file.type === 'application/pdf' || file.name.endsWith('.pdf')) {
-                reader.onload = function(e) {
-                    contenedor.innerHTML = fileInfo + `
-                        <iframe class="pdf-viewer" src="${e.target.result}"></iframe>
-                    `;
-                };
-                reader.readAsDataURL(file);
-            } else {
-                reader.onload = function(e) {
-                    const textoEscapado = e.target.result
-                        .replace(/&/g, '&amp;')
-                        .replace(/</g, '&lt;')
-                        .replace(/>/g, '&gt;')
-                        .replace(/"/g, '&quot;')
-                        .replace(/'/g, '&#039;');
-                    
-                    contenedor.innerHTML = fileInfo + `
-                        <div class="code-container">
-                            <pre>${textoEscapado}</pre>
-                        </div>
-                    `;
-                };
-                reader.readAsText(file);
-            }
         }
     </script>
 </body>
