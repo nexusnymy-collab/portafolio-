@@ -251,36 +251,6 @@
             margin-top: 20px;
         }
 
-        .file-upload {
-            border: 3px dashed #3498db;
-            border-radius: 15px;
-            padding: 40px;
-            text-align: center;
-            background: #f8f9fa;
-            cursor: pointer;
-            margin: 20px 0;
-        }
-
-        .file-upload:hover {
-            background: #e8f4f8;
-        }
-
-        .file-info {
-            background: #d4edda;
-            border-left: 4px solid #28a745;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-        }
-
-        .alert-info {
-            background: #d1ecf1;
-            border-left: 4px solid #17a2b8;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-
         @media (max-width: 768px) {
             .units-container {
                 grid-template-columns: 1fr;
@@ -322,7 +292,6 @@
                     <li><button onclick="mostrarContenido('graficador')">Graficador</button></li>
                     <li><button onclick="mostrarContenido('raphson')">Método Raphson</button></li>
                     <li><button onclick="mostrarContenido('exposicion')">Exposición de Raphson</button></li>
-                    
                 </ul>
             </div>
 
@@ -332,23 +301,18 @@
                     Unidad 2
                 </h2>
                 <ul class="links-list">
-                   <li><a href="https://github.com/nexusnymy-collab/portafolio-/blob/main/TRABAJO_METODOS_NUMERICOS%20(2).pdf" target="_blank"> Indice H</a></li>
-                    <li><a href="https://github.com/nexusnymy-collab/portafolio-/blob/main/bise.pdf" target="_blank"> M. biseccion</a></li>
-                    <li><a href="https://github.com/nexusnymy-collab/portafolio-/blob/main/bise%20(1).pdf" target="_blank"> M. Secante</a></li>
-                    <li><a href="https://github.com/nexusnymy-collab/portafolio-/blob/main/bise%20(3).pdf" target="_blank">M.Pounto fijo</a></li>
-                    <li><a href="https://github.com/nexusnymy-collab/portafolio-/blob/main/bise%20(4).pdf" target="_blank"> M. Regula falsi</a></li>
-                    <li><a href="https://github.com/nexusnymy-collab/portafolio-/blob/main/progra.graf%20(2).pdf" target="_blank"> Analisis del Articulo</a></li>
-                    <li><a href="https://github.com/nexusnymy-collab/portafolio-/blob/main/supervivencia%20(2).pdf" target="_blank"> juego de supervivencia</a></li>
-                    <li><a href="https://github.com/nexusnymy-collab/portafolio-/blob/main/bise%20(5).pdf" target="_blank"> Diferenciación Numérica</a></li>
-                    <li><a href="https://github.com/nexusnymy-collab/portafolio-/blob/main/ejercicios%20(1)%20(1).pdf" target="_blank"> Eigenvalores y Elgenvactores</a></li>
-                    <li><a href="https://github.com/nexusnymy-collab/portafolio-/blob/main/NEXU%20(2).pdf" target="_blank"> Ejercicio jmeter</a></li>
-                    <li><a href="https://github.com/nexusnymy-collab/portafolio-/blob/main/ejercicios%20(3)%20(1).pdf" target="_blank">practica calificada</a></li>
-                    <li><a href="https://github.com/nexusnymy-collab/portafolio-/blob/main/libro_programacion_numerica.pdf" target="_blank"> libro</a></li>
-                  
-                    
-         
-         
-                
+                    <li><button data-pdf onclick="mostrarPDF('Índice H', 'https://github.com/nexusnymy-collab/portafolio-/raw/main/TRABAJO_METODOS_NUMERICOS%20(2).pdf')">Índice H</button></li>
+                    <li><button data-pdf onclick="mostrarPDF('M. Bisección', 'https://github.com/nexusnymy-collab/portafolio-/raw/main/bise.pdf')">M. Bisección</button></li>
+                    <li><button data-pdf onclick="mostrarPDF('M. Secante', 'https://github.com/nexusnymy-collab/portafolio-/raw/main/bise%20(1).pdf')">M. Secante</button></li>
+                    <li><button data-pdf onclick="mostrarPDF('M. Punto Fijo', 'https://github.com/nexusnymy-collab/portafolio-/raw/main/bise%20(3).pdf')">M. Punto Fijo</button></li>
+                    <li><button data-pdf onclick="mostrarPDF('M. Regula Falsi', 'https://github.com/nexusnymy-collab/portafolio-/raw/main/bise%20(4).pdf')">M. Regula Falsi</button></li>
+                    <li><button data-pdf onclick="mostrarPDF('Análisis del Artículo', 'https://github.com/nexusnymy-collab/portafolio-/raw/main/progra.graf%20(2).pdf')">Análisis del Artículo</button></li>
+                    <li><button data-pdf onclick="mostrarPDF('Juego de Supervivencia', 'https://github.com/nexusnymy-collab/portafolio-/raw/main/supervivencia%20(2).pdf')">Juego de Supervivencia</button></li>
+                    <li><button data-pdf onclick="mostrarPDF('Diferenciación Numérica', 'https://github.com/nexusnymy-collab/portafolio-/raw/main/bise%20(5).pdf')">Diferenciación Numérica</button></li>
+                    <li><button data-pdf onclick="mostrarPDF('Eigenvalores y Eigenvectores', 'https://github.com/nexusnymy-collab/portafolio-/raw/main/ejercicios%20(1)%20(1).pdf')">Eigenvalores y Eigenvectores</button></li>
+                    <li><button data-pdf onclick="mostrarPDF('Ejercicio JMeter', 'https://github.com/nexusnymy-collab/portafolio-/raw/main/NEXU%20(2).pdf')">Ejercicio JMeter</button></li>
+                    <li><button data-pdf onclick="mostrarPDF('Práctica Calificada', 'https://github.com/nexusnymy-collab/portafolio-/raw/main/ejercicios%20(3)%20(1).pdf')">Práctica Calificada</button></li>
+                    <li><button data-pdf onclick="mostrarPDF('Libro', 'https://github.com/nexusnymy-collab/portafolio-/raw/main/libro_programacion_numerica.pdf')">Libro Programación Numérica</button></li>
                 </ul>
             </div>
         </div>
@@ -538,110 +502,6 @@ x₃ ≈ 1.41421
                         </div>
                     </div>
                 `
-            },
-            trabajo_metodos: {
-                titulo: "TRABAJO MÉTODOS NUMÉRICOS",
-                html: `
-                    <div class="alert-info">
-                        <h3 style="color: #17a2b8; margin-bottom: 10px;">📄 Cargar PDF del Trabajo</h3>
-                        <p>Por favor, carga el archivo PDF del trabajo de métodos numéricos.</p>
-                    </div>
-                    <div class="file-upload" onclick="document.getElementById('fileInput_trabajo').click()">
-                        <h3 style="color: #3498db;">📁 Seleccionar PDF</h3>
-                        <p>Haz clic aquí para cargar el archivo</p>
-                        <input type="file" id="fileInput_trabajo" style="display:none" 
-                               accept=".pdf" 
-                               onchange="procesarArchivo(event)">
-                    </div>
-                    <div id="archivoContenido"></div>
-                `
-            },
-            biseccion: {
-                titulo: "Método de Bisección",
-                html: `
-                    <div class="alert-info">
-                        <h3 style="color: #17a2b8; margin-bottom: 10px;">📄 Cargar PDF</h3>
-                        <p>Por favor, carga el archivo PDF del método de bisección.</p>
-                    </div>
-                    <div class="file-upload" onclick="document.getElementById('fileInput_biseccion').click()">
-                        <h3 style="color: #3498db;">📁 Seleccionar PDF</h3>
-                        <p>Haz clic aquí para cargar el archivo</p>
-                        <input type="file" id="fileInput_biseccion" style="display:none" 
-                               accept=".pdf" 
-                               onchange="procesarArchivo(event)">
-                    </div>
-                    <div id="archivoContenido"></div>
-                `
-            },
-            secante: {
-                titulo: "Método de la Secante",
-                html: `
-                    <div class="alert-info">
-                        <h3 style="color: #17a2b8; margin-bottom: 10px;">📄 Cargar PDF</h3>
-                        <p>Por favor, carga el archivo PDF del método de la secante.</p>
-                    </div>
-                    <div class="file-upload" onclick="document.getElementById('fileInput_secante').click()">
-                        <h3 style="color: #3498db;">📁 Seleccionar PDF</h3>
-                        <p>Haz clic aquí para cargar el archivo</p>
-                        <input type="file" id="fileInput_secante" style="display:none" 
-                               accept=".pdf" 
-                               onchange="procesarArchivo(event)">
-                    </div>
-                    <div id="archivoContenido"></div>
-                `
-            },
-            punto_fijo: {
-                titulo: "Método del Punto Fijo",
-                html: `
-                    <div class="alert-info">
-                        <h3 style="color: #17a2b8; margin-bottom: 10px;">📄 Cargar PDF</h3>
-                        <p>Por favor, carga el archivo PDF del método del punto fijo.</p>
-                    </div>
-                    <div class="file-upload" onclick="document.getElementById('fileInput_punto').click()">
-                        <h3 style="color: #3498db;">📁 Seleccionar PDF</h3>
-                        <p>Haz clic aquí para cargar el archivo</p>
-                        <input type="file" id="fileInput_punto" style="display:none" 
-                               accept=".pdf" 
-                               onchange="procesarArchivo(event)">
-                    </div>
-                    <div id="archivoContenido"></div>
-                `
-            },
-            regula_falsi: {
-                titulo: "Método de Regula Falsi",
-                html: `
-                    <div class="alert-info">
-                        <h3 style="color: #17a2b8; margin-bottom: 10px;">📄 Cargar PDF</h3>
-                        <p>Por favor, carga el archivo PDF del método de regula falsi.</p>
-                    </div>
-                    <div class="file-upload" onclick="document.getElementById('fileInput_regula').click()">
-                        <h3 style="color: #3498db;">📁 Seleccionar PDF</h3>
-                        <p>Haz clic aquí para cargar el archivo</p>
-                        <input type="file" id="fileInput_regula" style="display:none" 
-                               accept=".pdf" 
-                               onchange="procesarArchivo(event)">
-                    </div>
-                    <div id="archivoContenido"></div>
-                `
-            },
-            cargar: {
-                titulo: "Cargar Archivo",
-                html: `
-                    <div class="content-section">
-                        <h3>Cargar PDF o Código</h3>
-                        <p>Selecciona un archivo para visualizarlo:</p>
-                        
-                        <div class="file-upload" onclick="document.getElementById('fileInput').click()">
-                            <h3 style="color: #3498db;">📁 Seleccionar Archivo</h3>
-                            <p>PDF, Python, JavaScript, HTML, CSS, TXT, JSON, Markdown</p>
-                            <input type="file" id="fileInput" style="display:none" 
-                                   accept=".pdf,.py,.js,.txt,.html,.css,.json,.md" 
-                                   onchange="procesarArchivo(event)">
-                        </div>
-                        
-                        <div id="archivoContenido"></div>
-                    </div>
-                `
             }
         };
 
@@ -661,50 +521,29 @@ x₃ ≈ 1.41421
             }
         }
 
+        function mostrarPDF(titulo, url) {
+            const display = document.getElementById('contentDisplay');
+            const titleElement = document.getElementById('contentTitle');
+            const body = document.getElementById('contentBody');
+            
+            titleElement.textContent = titulo;
+            body.innerHTML = `
+                <div class="content-section">
+                    <p style="color: #555; margin-bottom: 20px;">Visualizando: <strong>${titulo}</strong></p>
+                </div>
+                <iframe class="pdf-viewer" src="${url}"></iframe>
+            `;
+            
+            display.classList.add('active');
+            
+            setTimeout(() => {
+                display.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+
         function cerrarContenido() {
             document.getElementById('contentDisplay').classList.remove('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function procesarArchivo(event) {
-            const file = event.target.files[0];
-            if (!file) return;
-            
-            const contenedor = document.getElementById('archivoContenido');
-            const reader = new FileReader();
-            
-            const fileInfo = `
-                <div class="file-info">
-                    <strong>📄 Archivo:</strong> ${file.name}<br>
-                    <strong>📊 Tamaño:</strong> ${(file.size/1024).toFixed(2)} KB<br>
-                    <strong>📅 Fecha:</strong> ${new Date(file.lastModified).toLocaleDateString('es-ES')}
-                </div>
-            `;
-            
-            if (file.type === 'application/pdf' || file.name.endsWith('.pdf')) {
-                reader.onload = function(e) {
-                    contenedor.innerHTML = fileInfo + `
-                        <iframe class="pdf-viewer" src="${e.target.result}"></iframe>
-                    `;
-                };
-                reader.readAsDataURL(file);
-            } else {
-                reader.onload = function(e) {
-                    const textoEscapado = e.target.result
-                        .replace(/&/g, '&amp;')
-                        .replace(/</g, '&lt;')
-                        .replace(/>/g, '&gt;')
-                        .replace(/"/g, '&quot;')
-                        .replace(/'/g, '&#039;');
-                    
-                    contenedor.innerHTML = fileInfo + `
-                        <div class="code-container">
-                            <pre>${textoEscapado}</pre>
-                        </div>
-                    `;
-                };
-                reader.readAsText(file);
-            }
         }
     </script>
 </body>
