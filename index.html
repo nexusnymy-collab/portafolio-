@@ -251,6 +251,14 @@
             margin-top: 20px;
         }
 
+        .file-info {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+
         @media (max-width: 768px) {
             .units-container {
                 grid-template-columns: 1fr;
@@ -301,18 +309,18 @@
                     Unidad 2
                 </h2>
                 <ul class="links-list">
-                    <li><button data-pdf onclick="mostrarPDF('Índice H', 'https://github.com/nexusnymy-collab/portafolio-/raw/main/TRABAJO_METODOS_NUMERICOS%20(2).pdf')">Índice H</button></li>
-                    <li><button data-pdf onclick="mostrarPDF('M. Bisección', 'https://github.com/nexusnymy-collab/portafolio-/raw/main/bise.pdf')">M. Bisección</button></li>
-                    <li><button data-pdf onclick="mostrarPDF('M. Secante', 'https://github.com/nexusnymy-collab/portafolio-/raw/main/bise%20(1).pdf')">M. Secante</button></li>
-                    <li><button data-pdf onclick="mostrarPDF('M. Punto Fijo', 'https://github.com/nexusnymy-collab/portafolio-/raw/main/bise%20(3).pdf')">M. Punto Fijo</button></li>
-                    <li><button data-pdf onclick="mostrarPDF('M. Regula Falsi', 'https://github.com/nexusnymy-collab/portafolio-/raw/main/bise%20(4).pdf')">M. Regula Falsi</button></li>
-                    <li><button data-pdf onclick="mostrarPDF('Análisis del Artículo', 'https://github.com/nexusnymy-collab/portafolio-/raw/main/progra.graf%20(2).pdf')">Análisis del Artículo</button></li>
-                    <li><button data-pdf onclick="mostrarPDF('Juego de Supervivencia', 'https://github.com/nexusnymy-collab/portafolio-/raw/main/supervivencia%20(2).pdf')">Juego de Supervivencia</button></li>
-                    <li><button data-pdf onclick="mostrarPDF('Diferenciación Numérica', 'https://github.com/nexusnymy-collab/portafolio-/raw/main/bise%20(5).pdf')">Diferenciación Numérica</button></li>
-                    <li><button data-pdf onclick="mostrarPDF('Eigenvalores y Eigenvectores', 'https://github.com/nexusnymy-collab/portafolio-/raw/main/ejercicios%20(1)%20(1).pdf')">Eigenvalores y Eigenvectores</button></li>
-                    <li><button data-pdf onclick="mostrarPDF('Ejercicio JMeter', 'https://github.com/nexusnymy-collab/portafolio-/raw/main/NEXU%20(2).pdf')">Ejercicio JMeter</button></li>
-                    <li><button data-pdf onclick="mostrarPDF('Práctica Calificada', 'https://github.com/nexusnymy-collab/portafolio-/raw/main/ejercicios%20(3)%20(1).pdf')">Práctica Calificada</button></li>
-                    <li><button data-pdf onclick="mostrarPDF('Libro', 'https://github.com/nexusnymy-collab/portafolio-/raw/main/libro_programacion_numerica.pdf')">Libro Programación Numérica</button></li>
+                    <li><button data-pdf onclick="mostrarPDF('Índice H', 'https://github.com/nexusnymy-collab/portafolio-/blob/main/TRABAJO_METODOS_NUMERICOS%20(2).pdf')">Índice H</button></li>
+                    <li><button data-pdf onclick="mostrarPDF('M. Bisección', 'https://github.com/nexusnymy-collab/portafolio-/blob/main/bise.pdf')">M. Bisección</button></li>
+                    <li><button data-pdf onclick="mostrarPDF('M. Secante', 'https://github.com/nexusnymy-collab/portafolio-/blob/main/bise%20(1).pdf')">M. Secante</button></li>
+                    <li><button data-pdf onclick="mostrarPDF('M. Punto Fijo', 'https://github.com/nexusnymy-collab/portafolio-/blob/main/bise%20(3).pdf')">M. Punto Fijo</button></li>
+                    <li><button data-pdf onclick="mostrarPDF('M. Regula Falsi', 'https://github.com/nexusnymy-collab/portafolio-/blob/main/bise%20(4).pdf')">M. Regula Falsi</button></li>
+                    <li><button data-pdf onclick="mostrarPDF('Análisis del Artículo', 'https://github.com/nexusnymy-collab/portafolio-/blob/main/progra.graf%20(2).pdf')">Análisis del Artículo</button></li>
+                    <li><button data-pdf onclick="mostrarPDF('Juego de Supervivencia', 'https://github.com/nexusnymy-collab/portafolio-/blob/main/supervivencia%20(2).pdf')">Juego de Supervivencia</button></li>
+                    <li><button data-pdf onclick="mostrarPDF('Diferenciación Numérica', 'https://github.com/nexusnymy-collab/portafolio-/blob/main/bise%20(5).pdf')">Diferenciación Numérica</button></li>
+                    <li><button data-pdf onclick="mostrarPDF('Eigenvalores y Eigenvectores', 'https://github.com/nexusnymy-collab/portafolio-/blob/main/ejercicios%20(1)%20(1).pdf')">Eigenvalores y Eigenvectores</button></li>
+                    <li><button data-pdf onclick="mostrarPDF('Ejercicio JMeter', 'https://github.com/nexusnymy-collab/portafolio-/blob/main/NEXU%20(2).pdf')">Ejercicio JMeter</button></li>
+                    <li><button data-pdf onclick="mostrarPDF('Práctica Calificada', 'https://github.com/nexusnymy-collab/portafolio-/blob/main/ejercicios%20(3)%20(1).pdf')">Práctica Calificada</button></li>
+                    <li><button data-pdf onclick="mostrarPDF('Libro', 'https://github.com/nexusnymy-collab/portafolio-/blob/main/libro_programacion_numerica.pdf')">Libro Programación Numérica</button></li>
                 </ul>
             </div>
         </div>
@@ -521,17 +529,21 @@ x₃ ≈ 1.41421
             }
         }
 
-        function mostrarPDF(titulo, url) {
+        function mostrarPDF(titulo, githubUrl) {
             const display = document.getElementById('contentDisplay');
             const titleElement = document.getElementById('contentTitle');
             const body = document.getElementById('contentBody');
             
+            // Usar Google Drive Viewer para visualizar PDFs de GitHub
+            const viewerUrl = `https://docs.google.com/viewer?url=${encodeURIComponent(githubUrl)}&embedded=true`;
+            
             titleElement.textContent = titulo;
             body.innerHTML = `
-                <div class="content-section">
-                    <p style="color: #555; margin-bottom: 20px;">Visualizando: <strong>${titulo}</strong></p>
+                <div class="file-info">
+                    <strong>📄 Documento:</strong> ${titulo}<br>
+                    <strong>🔗 Origen:</strong> GitHub
                 </div>
-                <iframe class="pdf-viewer" src="${url}"></iframe>
+                <iframe class="pdf-viewer" src="${viewerUrl}"></iframe>
             `;
             
             display.classList.add('active');
